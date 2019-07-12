@@ -114,7 +114,6 @@ comment = {}
 for i in range(0, len(vids)):
     comment[str(i)] = []
 
-
 zip_list = {}
 for i in range(0, len(vids)):
     comment[str(i)] = []
