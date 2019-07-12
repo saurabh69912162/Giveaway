@@ -17,6 +17,60 @@ import requests
 import math
 from collections import Counter
 
+
+
+
+
+def set_me(count):
+    if count == 1:
+        print(set(obj['0']).intersection(obj['0']))
+    if count == 2:
+        print(set(obj['0']).intersection(obj['0'],obj['1']))
+    if count == 3:
+        print(set(obj['0']).intersection(obj['0'],obj['1'],obj['2']))
+    if count == 4:
+        print(set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3']))
+    if count == 5:
+        print(set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4']))
+    if count == 6:
+        print(set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5']))
+    if count == 7:
+        print(set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6']))
+    if count == 8:
+        print(set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7']))
+    if count == 9:
+        print(set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8']))
+    if count == 10:
+        print(set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9']))
+    if count == 11:
+        print(set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9'],obj['10']))
+    if count == 12:
+        print(set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9'],obj['10'],obj['11']))
+    if count == 13:
+        print(set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9'],obj['10'],obj['11'],obj['12']))
+    if count == 14:
+        print(set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9'],obj['10'],obj['11'],obj['12'],obj['13']))
+    if count == 15:
+        print(set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9'],obj['10'],obj['11'],obj['12'],obj['13'],obj['14']))
+    if count == 16:
+        print(set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9'],obj['10'],obj['11'],obj['12'],obj['13'],obj['14'],obj['15']))
+
+
+
+def find_similar():
+    for len_of_video in range(len(vids)):
+        doit = zip(obj[str(len_of_video)],profile_url[str(len_of_video)],comment[str(len_of_video)])
+        for x, y, z in doit:
+            print(x)
+            print(y)
+            print(z)
+    set_me(len(vids))
+
+
+
+
+
+
 url = 'https://www.youtube.com/watch?v=KoZM4M9U7GM'
 url1 = 'https://www.youtube.com/watch?v=giSFVAjrpmA'
 url2 = 'https://www.youtube.com/watch?v=7nMYcZ-0V1o'
@@ -127,6 +181,10 @@ for x in vids:
     print('$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%')
     print('$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%')
 
+find_similar
+
+
+
 #a = dict(Counter(all_comments))
 # list1 = zip(a.values(),a.items())
 # print(sorted(a.values(),a.items()))
@@ -137,21 +195,16 @@ for x in vids:
 
 # print(profile_url['0'])
 # print(profile_url['1'])
-
 # print(obj['2'])
 
 
-for len_of_video in range(len(vids)):
-    doit = zip(obj[str(len_of_video)],profile_url[str(len_of_video)],comment[str(len_of_video)])
-    for x, y, z in doit:
-        print(x)
-        print(y)
-        print(z)
 
 
 
 
 
+#print(set(obj['0']).intersection(obj['1']))
+# print(set(obj['0']).intersection(obj['0'],obj['1']))
 
 
 
