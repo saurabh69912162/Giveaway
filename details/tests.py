@@ -17,17 +17,6 @@ import requests
 import math
 from collections import Counter
 
-
-#
-# o = urlparse('https://www.facebook.com/permalink.php?story_fbid=2321006788227886&id=1740315322963705')
-#
-# answer = o.query
-# final = answer.split('=')
-#
-# print(final[2].split('&__')[0]+'_'+final[1].split('&id')[0])
-
-
-
 url = 'https://www.youtube.com/watch?v=KoZM4M9U7GM'
 url1 = 'https://www.youtube.com/watch?v=giSFVAjrpmA'
 url2 = 'https://www.youtube.com/watch?v=7nMYcZ-0V1o'
@@ -110,7 +99,7 @@ for x in vids:
                      break
 
          elif x>0:
-             print('value is',set_loop_counter,x)
+
              page2 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id +'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM'+next)
              page2_json = page2.json()
              try:
@@ -146,14 +135,21 @@ for x in vids:
 
 
 
-# print(obj['0'])
-# print(obj['1'])
+# print(profile_url['0'])
+# print(profile_url['1'])
+
 # print(obj['2'])
 
 doit = zip(obj['0'],profile_url['0'],comment['0'])
 
 doit1 = zip(obj['1'],profile_url['1'],comment['1'])
 
+
+
+for x,y,z in doit:
+    print(x)
+    print(y)
+    print(z)
 
 
 # for x,y,z in doit1:
