@@ -10,7 +10,7 @@
 
 
 
-
+import time
 # from django.test import TestCase
 from urllib.parse import urlparse
 import requests
@@ -25,10 +25,30 @@ def set_me(count):
     if count == 1:
         print(set(obj['0']).intersection(obj['0']))
     if count == 2:
-        print('lmao bitch')
-        print(set(obj['0']).intersection(obj['0'],obj['1']))
+        answer = []
+        answer = set(obj['0']).intersection(obj['0'],obj['1'])
+        for x in answer:
+            print(x)
+
+
+
+
     if count == 3:
-        print(set(obj['0']).intersection(obj['0'],obj['1'],obj['2']))
+        answer = []
+        answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'])
+        for xyz in answer:
+
+            for i in range(3):
+                doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
+                for x, y, z in doit:
+                    if xyz in x:
+                        time.sleep(2)
+                        print(x)
+                        print(y)
+                        print(z)
+
+
+
     if count == 4:
         print(set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3']))
     if count == 5:
@@ -60,12 +80,12 @@ def set_me(count):
 
 def find_similar():
     print('here')
-    for len_of_video in range(len(vids)):
-        doit = zip(obj[str(len_of_video)],profile_url[str(len_of_video)],comment[str(len_of_video)])
-        for x, y, z in doit:
-            print(x)
-            print(y)
-            print(z)
+    # for len_of_video in range(len(vids)):
+    #     doit = zip(obj[str(len_of_video)],profile_url[str(len_of_video)],comment[str(len_of_video)])
+    #     for x, y, z in doit:
+    #         print(x)
+    #         print(y)
+    #         print(z)
     set_me(len(vids))
 
 
@@ -77,7 +97,7 @@ url = 'https://www.youtube.com/watch?v=KoZM4M9U7GM'
 url1 = 'https://www.youtube.com/watch?v=giSFVAjrpmA'
 url2 = 'https://www.youtube.com/watch?v=7nMYcZ-0V1o'
 
-vids = [url,url1]
+vids = [url,url1,url1]
 all_comments = []
 
 obj = {}
