@@ -35,17 +35,16 @@ def set_me(count):
 
     if count == 3:
         answer = []
-        answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'])
-        for xyz in answer:
-
-            for i in range(3):
-                doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
-                for x, y, z in doit:
-                    if xyz in x:
-                        time.sleep(2)
-                        print(x)
-                        print(y)
-                        print(z)
+        answer = set(obj['0']).intersection(obj['1'],obj['2'])
+        print(len(answer))
+        # for xyz in answer:
+        for i in range(len(answer)):
+            doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
+            for x, y, z in doit:
+                if answer[i] in x:
+                    print(x)
+                    print(y)
+                    print(z)
 
 
 
