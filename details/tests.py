@@ -140,16 +140,36 @@ for x in vids:
 
 # print(obj['2'])
 
-doit = zip(obj['0'],profile_url['0'],comment['0'])
 
-doit1 = zip(obj['1'],profile_url['1'],comment['1'])
+for len_of_video in range(len(vids)):
+    doit = zip(obj[str(len_of_video)],profile_url[str(len_of_video)],comment[str(len_of_video)])
+    for x, y, z in doit:
+        print(x)
+        print(y)
+        print(z)
 
 
 
-for x,y,z in doit:
-    print(x)
-    print(y)
-    print(z)
+
+
+
+
+
+# doit = zip(obj['0'],profile_url['0'],comment['0'])
+#
+# doit1 = zip(obj['1'],profile_url['1'],comment['1'])
+#
+# print('$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%')
+# print('$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%')
+# print('$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%')
+# print('$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%')
+# print('$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%')
+# print('$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%')
+#
+# for x,y,z in doit1:
+#     print(x)
+#     print(y)
+#     print(z)
 
 
 # for x,y,z in doit1:
