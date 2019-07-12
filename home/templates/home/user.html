@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{user}}</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<style>
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+</style>
+</head>
+<body>
+<div class="container">
+{%if request.user.is_authenticated%}
+<h3>welcome {{request.user}}</h3>
+{%endif%}
+{% load socialaccount %}
+{% get_providers as socialaccount_providers %}
+<br>
+{% include "socialaccount/snippets/login_extra.html" %}
+
+<h1>{{name}}</h1>
+<hr/>
+{% if request.user.is_authenticated%}
+  <div class="well">
+    <a class="btn btn-warning" href="/">Home</a>
+
+<a href="/accounts/logout/" class="btn btn-warning">Logout</a>
+  </div>
+{%else%}
+  <div class="well">
+    <a href="/" class="btn btn-warning">Home</a>
+    <a href="/accounts/login/?next=/{{name}}" class="btn btn-warning">Login</a>
+
+  </div>
+{%endif%}
+<hr/>
+
+<div class="container">
+  <img src="{{obj1.image.url}}" alt="Jane" style="width:100%">
+  <hr/>
+</div>
+
+  <div class="container">
+    <p><h1>Currnet Giveaways</h1></p>
+    <hr/>
+
+  </div>
+
+<div class="container">
+<div class="row">
+    {%for away_details,rules in new_zip %}
+
+  <div class="column">
+    <div class="card">
+      <img src="{{away_details.banner_image.url}}" alt="Jane" style="width:100%">
+      <div class="container" style="width:100%">
+        <h2>{{away_details.giveaway_title}}</h2>
+          <p class="title">{{away_details.status}}</p>
+          <p class="title">{{away_details.description|truncatechars:150}} <a href="{% url 'detailpage' name away_details.giveaway_id %}" >Read More</a></p>
+          <p class="title"><strong>Start</strong> - {{away_details.start_date}} <strong><br>End</strong> - {{away_details.end_date}}</p>
+            {%if away_details.status == "Open"%}
+          <p><a href="{% url 'detailpage' name away_details.giveaway_id %}" class="btn btn-success">Take Me There</a></p>
+          {%elif away_details.status == "Closed"%}
+          <p><a href="{% url 'detailpage' name away_details.giveaway_id  %}" class="btn btn-success">View Winners</a></button></p>
+          {%endif%}
+      </div>
+    </div>
+  </div>
+{%endfor%}
+</div>
+  </div>
+
+
+</div>
+</body>
+</html>
+

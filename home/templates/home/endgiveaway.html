@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>End Giveaway</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column1 {
+  float: left;
+  width: 70%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+
+}
+
+.button:hover {
+  background-color: #555;
+}
+</style>
+</head>
+<body style="margin-top:50px;margin-bottom:50px;">
+<div class="container">
+{% if request.user.is_authenticated %}
+        <div class="nav navbar-nav navbar-right">
+
+
+            <a href="/accounts/logout/" class="btn btn-danger">Logout</a>
+
+        </div>
+
+    <div class="nav navbar-nav navbar-left">
+
+            <a href="/" class="btn btn-success">Home</a>
+            <a href="/cr-admin" class="btn btn-success">Admin Panel</a>
+
+        </div>
+{% endif %}
+
+</div>
+<div class="container" >
+    <h1 style="margin-top:50px;margin-bottom:50px;">Hey {{user|title}}</h1>
+    <h1 style="margin-top:50px;margin-bottom:50px;">How Would you like to end this Giveaway ?</h1>
+    <div class="container" style="margin-top:25px;margin-bottom:25px;">
+    <div class="row">
+            {% for x in obj%}
+  <div class="column1">
+    <div class="card">
+      <div class="container">
+          <h2><a href="{% url 'detailpage' x x.giveaway_id %}">{{x}}</a></h2>
+          <img src="{{x.banner_image.url}}" style="width:50%">
+          <p><strong>Winners</strong> - {{x.number_of_winners}}</p>
+          <p><strong>Start</strong> - {{x.start_date}}</p>
+          <p><strong>End</strong> - {{x.end_date}}</p>
+
+      </div>
+    </div>
+  </div>
+            {%  endfor %}
+    </div>
+    </div>
+
+    <h1 style="margin-bottom:50px">Select a way to SEND IT !</h1>
+        <div class="row" style="text-align:center;">
+
+
+            <div class="column">
+    <div class="card">
+      <div class="well">
+      <form action="/winner/" method="POST">
+          {% csrf_token %}
+          <button class="btn btn-info" type="submit" name="facebook">Facebook Comments</button>
+      </form>
+      </div>
+    </div>
+  </div>
+
+            <div class="column">
+    <div class="card">
+      <div class="well">
+         <form action="/winner/" method="POST">
+          {% csrf_token %}
+          <button class="btn btn-danger" type="submit" name="youtube">Youtube Comments</button>
+      </form>
+      </div>
+    </div>
+  </div>
+
+            <div class="column">
+    <div class="card">
+      <div class="well">
+
+
+          <form action="/winner/" method="POST">
+          {% csrf_token %}
+          <button class="btn btn-info" type="submit" name="twitter" value="{{giveaway_id}}">Twitter Comments</button>
+      </form>
+      </div>
+    </div>
+  </div>
+
+            <div class="column">
+    <div class="card">
+      <div class="well">
+          <form action="/winner/" method="POST">
+          {% csrf_token %}
+          <button class="btn btn-warning" type="submit" name="rule">Rule Based Selection</button>
+      </form>
+      </div>
+    </div>
+  </div>
+
+            <div class="column">
+    <div class="card">
+      <div class="well">
+          <form action="/winner/" method="POST">
+          {% csrf_token %}
+          <button class="btn btn-success" type="submit" name="lucky">I'm Feeling Lucky</button>
+      </form>
+      </div>
+    </div>
+  </div>
+
+         <div class="column">
+    <div class="card">
+      <div class="well">
+              <form action="/winner/" method="POST">
+          {% csrf_token %}
+          <button class="btn btn-danger" type="submit" name="random">Select Random Winner</button>
+      </form>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+        </div>
+
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="well">
+{% if request.user.is_authenticated%}
+<a href="/" class="btn btn-warning">Home</a>
+<a href="/accounts/logout/" class="btn btn-warning">Logout</a>
+
+{%else%}
+<a href="/" class="btn btn-warning">Home</a>
+<a href="/accounts/login/?next=/{{user}}" class="btn btn-warning">Login</a>
+
+
+{%endif%}
+</div>
+
+<div class="container">
+{%for x in giveaways%}
+<h1>{{x.giveaway_title}} </h1>
+
+<img src="{{x.banner_image.url}}" style="width:100%">
+<hr/>
+
+<div class="container" style="text-align: center">
+    <h1>Take a closser look</h1>
+
+
+        <div id="myCarousel" class="carousel slide" data-ride="carousel"  style="width:40%;display: inline-block;">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="{{x.image1.url}}" alt="Los Angeles" style="width:100%">
+        <div class="carousel-caption">
+          <h3>{{x.caption1}}</h3>
+
+        </div>
+
+    </div>
+
+    <div class="item">
+      <img src="{{x.image1.url}}" alt="Chicago" style="width:100%">
+          <div class="carousel-caption">
+          <h3>{{x.caption1}}</h3>
+
+        </div>
+
+    </div>
+
+    <div class="item">
+      <img src="{{x.image1.url}}" alt="New York" style="width:100%">
+          <div class="carousel-caption">
+          <h3>{{x.caption1}}</h3>
+
+        </div>
+
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+
+<h1>Description</h1>
+    <div class="well">{{x.description}}</div>
+    <hr/>
+
+{%endfor%}
+
+    <div class="alert alert-info" style="text-align: center">
+        <h4> Dont Miss your chance to win this exciting giveaway, participate now ! <strong>{{total_ppl}}</strong> People Already Enrolled.</h4>
+</div>
+
+
+</div>
+{% if not eligible %}
+<div class="container">
+    <h1>Enter the Giveaway</h1>
+    {% if request.user.is_authenticated %}
+    <p>By entering in the following giveaway you i.e.<strong> {{request.user|title}}</strong> agree all Terms and Conditions related to the following giveaway.</p>
+
+    <form action="." method="POST">
+        {% csrf_token %}
+    <button class="btn btn-danger" name="enter" type="submit" value="{{x}}" >Participate</button>
+    </form>
+
+    {% else %}
+    <a href="/accounts/login/?next=/{{user}}/{{giveaway_id}}" class="btn btn-danger" >Login to Participate in the Giveaway</a>
+    {% endif %}
+
+</div>
+{% endif %}
+
+
+
+{% if request.user.is_authenticated %}
+{% if eligible %}
+<div class="container">
+
+    <h1>Rules for the Giveaway !</h1>
+{%for x in rules%}
+
+
+{%if x.insta_profile_follow %}
+    <div class="alert alert-danger">
+        <form action="." method="POST">
+            {% csrf_token%}
+            <button type="submit" class="btn btn-success" name="insta_profile_follow"  >Follow Instagram Profile</button>  {{x.completed}}
+        </form>
+    </div>
+{%endif%}
+
+
+
+    {%if x.insta_post %}
+
+    <div class="alert alert-danger">
+<form action="." method="POST">
+            {% csrf_token%}
+        <button type="submit" class="btn btn-success" name="insta_post">Like Instagram Post</button>  {{x.completed}}
+</form>
+</div>
+{%endif%}
+
+
+{%if x.insta_comment %}
+    <div class="alert alert-danger">
+<form action="." method="POST">
+            {% csrf_token%}
+        <button type="submit" class="btn btn-success" name="insta_comment">Leave a comment on Instagram Post</button>  {{x.completed}}
+</form>
+</div>
+{%endif%}
+
+
+{%if x.facebook_profile_like %}
+<div class="alert alert-danger">
+
+<form action="." method="POST" >
+{% csrf_token%}
+    <div class="form-group">
+      {% if accounts_fb.count is 0%}
+        <h3 style="color:black">Like Facebook Profile</h3>
+        <h6>{{accounts_fb.count}} Facebook Accounts Connected</h6>
+    {% load socialaccount %}
+    {% get_providers as socialaccount_providers %}
+          <a title="Facebook" class="socialaccount_provider facebook" href="{% provider_login_url "facebook" action="authorize" process="connect" next="/accounts/social/connections/" %}" >Connect Facebook</a><br>
+        {% else %}
+        <label for="sel1">{{accounts_fb.count}} Facebook Account Connected (select one):</label>
+        <select class="form-control" id="sel1" name="facebook_profile_like">
+          {%for y in accounts_fb %}
+          <option value="{{y.extra_data.id}},{{x.giveaway_id}},{{x.sequence_number}}">{{y.extra_data.name}}</option>
+        {% endfor %}
+     </select>
+    </div>
+    {% if x.status%}
+    <h4>{{x.status}} - Facebook Page Like</h4>
+    {% else %}
+    <button type="submit" class="btn btn-success" >Like Facebook Profile - Press to Conform</button>
+    {% endif %}
+            {% endif %}
+</form>
+</div>
+{%endif%}
+
+
+
+{%if x.facebook_post_like %}
+    <div class="alert alert-danger">
+<form action="." method="POST">
+            {% csrf_token%}
+        <button type="submit" class="btn btn-success" >Like Facebook Post</button>  {{x.completed}}
+    <div class="form-group">
+      <label for="sel1">Select list (select one):</label>
+      <select class="form-control" id="sel1" name="facebook_post_like">
+        {%for x in accounts_fb %}
+          <option>{{x.extra_data.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+</form>
+    </div>
+{%endif%}
+
+
+{%if x.facebook_post_comment %}
+    <div class="alert alert-danger">
+<form action="." method="POST">
+            {% csrf_token%}
+        <button type="submit" class="btn btn-success" >Leave a comment on Facebook Post</button>  {{x.completed}}
+    <div class="form-group">
+      <label for="sel1">Select list (select one):</label>
+      <select class="form-control" id="sel1" name="facebook_post_comment">
+        {%for x in accounts_fb %}
+          <option>{{x.extra_data.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+</form>
+    </div>
+{%endif%}
+
+    {%if x.facebook_post_share %}
+    <div class="alert alert-danger">
+<form action="." method="POST">
+            {% csrf_token%}
+    <button type="submit" class="btn btn-success" >Share a Facebook Post</button>  {{x.completed}}
+      <div class="form-group">
+      <label for="sel1">Select list (select one):</label>
+      <select class="form-control" id="sel1" name="facebook_post_share">
+        {%for x in accounts_fb %}
+          <option>{{x.extra_data.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+</form>
+    {%endif%}
+
+
+        {%if x.twitter_profile_follow %}
+<div class="alert alert-danger">
+<form action="." method="POST">
+            {% csrf_token%}
+
+    <div class="form-group">
+      <label for="sel1">Select list (select one):</label>
+      <select class="form-control" id="sel1" name="twitter_profile_follow">
+        {%for x in accounts_twitter %}
+          <option>{{x.extra_data.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <button type="submit" class="btn btn-success" >Follow Twitter Profile</button>  {{x.completed}}
+</form>
+</div>
+{%endif%}
+
+{%if x.tweet_like %}
+    <div class="alert alert-danger">
+<form action="." method="POST">
+            {% csrf_token%}
+    <div class="form-group">
+      <label for="sel1">Select list (select one):</label>
+      <select class="form-control" id="sel1" name="tweet_like">
+        {%for x in accounts_fb %}
+          <option>{{x.extra_data.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+        <button type="submit" class="btn btn-success" >Like Tweet</button>  {{x.completed}}
+</form>
+    </div>
+{%endif%}
+
+
+    {%if x.tweet_comment %}
+    <div class="alert alert-danger">
+
+<form action="." method="POST">
+            {% csrf_token%}
+    <div class="form-group">
+      <label for="sel1">Select list (select one):</label>
+      <select class="form-control" id="sel1" name="tweet_comment">
+        {%for x in accounts_fb %}
+          <option>{{x.extra_data.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+        <button type="submit" class="btn btn-success" >Leave a comment on a Tweet</button>  {{x.completed}}
+</form>
+
+</div>
+{%endif%}
+
+    {%if x.retweet %}
+    <div class="alert alert-danger">
+<form action="." method="POST">
+            {% csrf_token%}
+     <div class="form-group">
+      <label for="sel1">Select list (select one):</label>
+      <select class="form-control" id="sel1" name="retweet">
+        {%for x in accounts_fb %}
+          <option>{{x.extra_data.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+        <button type="submit" class="btn btn-success" >Retweet a tweet</button>  {{x.completed}}
+</form>
+</div>
+{%endif%}
+
+
+{%if x.youtube_subscibe %}
+    <div class="alert alert-danger">
+<form action="." method="POST">
+            {% csrf_token%}
+    <div class="form-group">
+      <label for="sel1">Select list (select one):</label>
+      <select class="form-control" id="sel1" name="youtube_subscibe">
+        {%for x in accounts_google %}
+          <option>{{x.extra_data.email}}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+        <button type="submit" class="btn btn-success" >Subscribe to Youtube Channel</button>  {{x.completed}}
+</form>
+    </div>
+{%endif%}
+
+
+{%if x.youtube_comment %}
+    <div class="alert alert-danger">
+<form action="." method="POST">
+            {% csrf_token%}
+    <div class="form-group">
+      <label for="sel1">Select list (select one):</label>
+      <select class="form-control" id="sel1" name="youtube_comment">
+        {%for x in accounts_google %}
+          <option>{{x.extra_data.email}}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+        <button type="submit" class="btn btn-success" >Comment on Youtube Video</button>  {{x.completed}}
+</form>
+
+    </div>
+{%endif%}
+
+
+{%if x.youtube_like %}
+    <div class="alert alert-danger">
+<form action="." method="POST">
+            {% csrf_token%}
+        <div class="form-group">
+      <label for="sel1">Select list (select one):</label>
+      <select class="form-control" id="sel1" name="youtube_like">
+        {%for x in accounts_google %}
+          <option>{{x.extra_data.email}}</option>
+        {% endfor %}
+      </select>
+    </div>
+        <button type="submit" class="btn btn-success" >Like a Youtube Video</button>  {{x.completed}}
+</form>
+
+    </div>
+{%endif%}
+
+
+{%if x.youtube_share %}
+    <div class="alert alert-danger">
+        <div class="form-group">
+      <label for="sel1">Select list (select one):</label>
+      <select class="form-control" id="sel1" name="youtube_share">
+        {%for x in accounts_google %}
+          <option>{{x.extra_data.email}}</option>
+        {% endfor %}
+      </select>
+    </div>
+<form action="." method="POST">
+            {% csrf_token%}
+        <button type="submit" class="btn btn-success" >Share a Youtube Video</button>  {{x.completed}}
+</form>
+
+    </div>
+{%endif%}
+
+
+{%if x.go_to_this_link %}
+    <div class="alert alert-danger">
+<form action="." method="POST">
+            {% csrf_token%}
+        <button type="submit" class="btn btn-success" name="go_to_this_link">Go to this Link</button>  {{x.completed}}
+</form>
+        </div>
+{%endif%}
+
+{%endfor%}
+{%endif%}
+</div>
+
+{%endif%}
+</body>
+</html>
+
+
