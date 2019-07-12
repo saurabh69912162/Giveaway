@@ -25,6 +25,7 @@ def set_me(count):
     if count == 1:
         print(set(obj['0']).intersection(obj['0']))
     if count == 2:
+        print('lmao bitch')
         print(set(obj['0']).intersection(obj['0'],obj['1']))
     if count == 3:
         print(set(obj['0']).intersection(obj['0'],obj['1'],obj['2']))
@@ -58,6 +59,7 @@ def set_me(count):
 
 
 def find_similar():
+    print('here')
     for len_of_video in range(len(vids)):
         doit = zip(obj[str(len_of_video)],profile_url[str(len_of_video)],comment[str(len_of_video)])
         for x, y, z in doit:
@@ -181,7 +183,10 @@ for x in vids:
     print('$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%')
     print('$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%')
 
-find_similar
+
+
+
+find_similar()
 
 
 
