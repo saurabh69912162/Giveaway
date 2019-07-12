@@ -97,7 +97,7 @@ url = 'https://www.youtube.com/watch?v=KoZM4M9U7GM'
 url1 = 'https://www.youtube.com/watch?v=giSFVAjrpmA'
 url2 = 'https://www.youtube.com/watch?v=7nMYcZ-0V1o'
 
-vids = [url,url1,url1]
+vids = [url,url1,url2]
 all_comments = []
 
 obj = {}
