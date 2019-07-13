@@ -31,10 +31,14 @@
 
 {% if 'yt' in name %}
     <div class="well">
-{{obj}}
+{% for x in obj %}
+        {% if x.sequence_number > 0%}
+        Comment on :: {{x.youtube_comment}}<br>
+        {% endif%}
 
-    </div>
-    {% endif%}
+    {% endfor %}
+     {% endif%}
+          </div>
 </div>
 
 
