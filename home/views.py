@@ -15,7 +15,7 @@ import json
 from urllib.parse import urlparse
 import requests
 import math
-
+import random
 from allauth.socialaccount.models import SocialAccount,SocialToken
 
 
@@ -760,9 +760,9 @@ def ytcomments(request,giveaway_id):
 
     name_user,url_user,comment_user = start(vids_list)
     win_zip = zip(name_user,url_user,comment_user)
-
+    print(random.sample(range(0, len(name_user)), len(name_user)))
 
     context = {'vids_list':vids_list,
-               'win_zip':win_zip,
+              'win_zip':win_zip,
                 }
     return render(request, 'home/ytcomments.html',context)

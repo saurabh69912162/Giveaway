@@ -32,11 +32,13 @@
 
 <h1>Winners !!!</h1>
     {% for x,y,z in win_zip %}
+    {% if 'Creative Pavan' not in x %}
 <div class="well">
+
     <h4>Name :: <a href="{{z}}">{{x}}</a></h4>
     <h5>Comment :: {{z}}</h5>
-
 </div>
+    {% endif %}
 {% endfor%}
     </div>
 
