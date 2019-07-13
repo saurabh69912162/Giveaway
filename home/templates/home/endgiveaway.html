@@ -116,6 +116,17 @@ html {
         {% for x in obj1 %}
         {% if x.sequence_number > 0%}<br>
         {{x.facebook_profile_like}}
+        {{x.facebook_post_like}}
+        {{x.facebook_post_comment}}
+        {{x.facebook_post_share}}
+        {{x.youtube_subscribe}}
+        {{x.youtube_like}}
+        {{x.youtube_share}}
+        {{x.youtube_comment}}
+        {{x.twitter_profile_follow}}
+        {{x.twitter_like}}
+        {{x.tweet_comment}}
+        {{x.retweet}}
         {%endif%}
         {% endfor %}
     </div>
