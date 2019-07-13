@@ -41,7 +41,6 @@ def set_me(count):
         print(answer)
         print(len(answer))
         for xyz in answer:
-            for i in range(0,len(answer)+1):
             for i in range(0,3):
                 doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
                 for x, y, z in doit:
@@ -98,7 +97,7 @@ url = 'https://www.youtube.com/watch?v=KoZM4M9U7GM'
 url1 = 'https://www.youtube.com/watch?v=giSFVAjrpmA'
 url2 = 'https://www.youtube.com/watch?v=7nMYcZ-0V1o'
 
-vids = [url,url1,url]
+vids = [url,url1,url2]
 all_comments = []
 
 obj = {}
