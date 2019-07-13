@@ -344,7 +344,7 @@ def winner(request):
                     if x.youtube_comment:
                         vids_list.append(x.youtube_comment)
 
-            context = {'obj':obj,'name':name}
+            context = {'obj':obj,'name':name,'giveaway_id':giveaway_id}
             return render(request, 'home/winner.html', context)
 
         if "twitter" in request.POST:
@@ -372,3 +372,7 @@ def winner(request):
             return redirect('/')
     else:
         return redirect('/')
+
+
+def ytcomments(request):
+    return render(request, 'home/ytcomments.html',{})
