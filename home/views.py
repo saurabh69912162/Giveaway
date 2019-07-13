@@ -339,6 +339,11 @@ def winner(request):
             model2 = apps.get_model('details', 'giveaway_rule')
             obj = model2.objects.filter(giveaway_id=giveaway_id)
 
+            for x in obj:
+                if x.sequence_number > 0:
+                    if x.youtube_comment:
+                        print(x.youtube_comment)
+
             context = {'obj':obj,'name':name}
             return render(request, 'home/winner.html', context)
 
