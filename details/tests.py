@@ -23,7 +23,7 @@ from collections import Counter
 
 def set_me(count):
     if count == 1:
-        break
+        pass
 
     if count == 2:
         answer = set(obj['0']).intersection(obj['1'])
