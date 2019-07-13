@@ -3,10 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Winner</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 </head>
 <body>
-{% for x in vids_list %}
-{{x}}<br>
+
+<div class="container">
+<h1>Winners !!!</h1>
+    {% for x,y,z in win_zip %}
+<div class="well">
+    <h4>Name :: <a href="{{z}}">{{x}}</a></h4>
+    <h5>Comment :: {{z}}</h5>
+
+</div>
 {% endfor%}
+    </div>
 </body>
 </html>
