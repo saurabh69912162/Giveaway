@@ -34,8 +34,6 @@ def set_me(count):
 
 
     if count == 3:
-
-
         answer = []
         answer = set(obj['0']).intersection(obj['1'],obj['2'])
         print(answer)
@@ -46,6 +44,7 @@ def set_me(count):
                 for x, y, z in doit:
                     if xyz in x:
                         print(x)
+                        print(y)
                         print(z)
                         break
 
