@@ -21,376 +21,618 @@ from collections import Counter
 
 
 
-def set_me(count):
-    if count == 1:
-        pass
-
-    if count == 2:
-        answer = set(obj['0']).intersection(obj['1'])
-        print(answer)
-        print(len(answer))
-        for xyz in answer:
-            for i in range(0,2):
-                doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
-                for x, y, z in doit:
-                    if xyz in x:
-                        print(x)
-                        print(y)
-                        print(z)
-                        break
-
-
-    if count == 3:
-
-        answer = set(obj['0']).intersection(obj['1'],obj['2'])
-        print(answer)
-        print(len(answer))
-        for xyz in answer:
-            for i in range(0,3):
-                doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
-                for x, y, z in doit:
-                    if xyz in x:
-                        print(x)
-                        print(y)
-                        print(z)
-                        break
-
-    if count == 4:
-
-        answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'])
-        print(answer)
-        print(len(answer))
-        for xyz in answer:
-            for i in range(0,4):
-                doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
-                for x, y, z in doit:
-                    if xyz in x:
-                        print(x)
-                        print(y)
-                        print(z)
-                        break
-
-
-    if count == 5:
-
-        answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'])
-        print(answer)
-        print(len(answer))
-        for xyz in answer:
-            for i in range(0,5):
-                doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
-                for x, y, z in doit:
-                    if xyz in x:
-                        print(x)
-                        print(y)
-                        print(z)
-                        break
-
-
-    if count == 6:
-
-        answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'])
-        print(answer)
-        print(len(answer))
-        for xyz in answer:
-            for i in range(0,6):
-                doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
-                for x, y, z in doit:
-                    if xyz in x:
-                        print(x)
-                        print(y)
-                        print(z)
-                        break
-
-    if count == 7:
-
-        answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'])
-        print(answer)
-        print(len(answer))
-        for xyz in answer:
-            for i in range(0,7):
-                doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
-                for x, y, z in doit:
-                    if xyz in x:
-                        print(x)
-                        print(y)
-                        print(z)
-                        break
-
-    if count == 8:
-
-        answer = []
-        answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'])
-        print(answer)
-        print(len(answer))
-        for xyz in answer:
-            for i in range(0,8):
-                doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
-                for x, y, z in doit:
-                    if xyz in x:
-                        print(x)
-                        print(y)
-                        print(z)
-                        break
-
-    if count == 9:
-        answer = []
-        answer = set(obj['0']).intersection(obj['0'], obj['1'], obj['2'], obj['3'], obj['4'], obj['5'], obj['6'],
-                                            obj['7'],obj['8'])
-
-        print(answer)
-        print(len(answer))
-        for xyz in answer:
-            for i in range(0,9):
-                doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
-                for x, y, z in doit:
-                    if xyz in x:
-                        print(x)
-                        print(y)
-                        print(z)
-                        break
-
-    if count == 10:
-        answer = []
-        answer = set(obj['0']).intersection(obj['0'], obj['1'], obj['2'], obj['3'], obj['4'], obj['5'], obj['6'],
-                                            obj['7'], obj['8'], obj['9'])
-        print(answer)
-        print(len(answer))
-        for xyz in answer:
-            for i in range(0,10):
-                doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
-                for x, y, z in doit:
-                    if xyz in x:
-                        print(x)
-                        print(y)
-                        print(z)
-                        break
-
-    if count == 11:
-        answer = []
-        answer = set(obj['0']).intersection(obj['0'], obj['1'], obj['2'], obj['3'], obj['4'], obj['5'], obj['6'],
-                                            obj['7'], obj['8'], obj['9'], obj['10'])
-
-        print(answer)
-        print(len(answer))
-        for xyz in answer:
-            for i in range(0,11):
-                doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
-                for x, y, z in doit:
-                    if xyz in x:
-                        print(x)
-                        print(y)
-                        print(z)
-                        break
-
-    if count == 12:
-        answer = []
-        answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9'],obj['10'],obj['11'])
-        print(answer)
-        print(len(answer))
-        for xyz in answer:
-            for i in range(0,12):
-                doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
-                for x, y, z in doit:
-                    if xyz in x:
-                        print(x)
-                        print(y)
-                        print(z)
-                        break
-
-    if count == 13:
-        answer = []
-        answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9'],obj['10'],obj['11'],obj['12'])
-        print(answer)
-        print(len(answer))
-        for xyz in answer:
-            for i in range(0,13):
-                doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
-                for x, y, z in doit:
-                    if xyz in x:
-                        print(x)
-                        print(y)
-                        print(z)
-                        break
-
-    if count == 14:
-        answer = []
-        answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9'],obj['10'],obj['11'],obj['12'],obj['13'])
-        print(answer)
-        print(len(answer))
-        for xyz in answer:
-            for i in range(0,14):
-                doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
-                for x, y, z in doit:
-                    if xyz in x:
-                        print(x)
-                        print(y)
-                        print(z)
-                        break
-
-    if count == 15:
-
-        answer = []
-        answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9'],obj['10'],obj['11'],obj['12'],obj['13'],obj['14'])
-        print(answer)
-        print(len(answer))
-        for xyz in answer:
-            for i in range(0,15):
-                doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
-                for x, y, z in doit:
-                    if xyz in x:
-                        print(x)
-                        print(y)
-                        print(z)
-                        break
-
-    if count == 16:
-
-        answer = []
-        answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9'],obj['10'],obj['11'],obj['12'],obj['13'],obj['14'],obj['15'])
-        print(answer)
-        print(len(answer))
-        for xyz in answer:
-            for i in range(0,16):
-                doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
-                for x, y, z in doit:
-                    if xyz in x:
-                        print(x)
-                        print(y)
-                        print(z)
-                        break
-
-
-
-
-def find_similar():
-    print('here')
-    # for len_of_video in range(len(vids)):
-    #     doit = zip(obj[str(len_of_video)],profile_url[str(len_of_video)],comment[str(len_of_video)])
-    #     for x, y, z in doit:
-    #         print(x)
-    #         print(y)
-    #         print(z)
-    set_me(len(vids))
+# def set_me(count):
+#     if count == 1:
+#         pass
+#
+#     if count == 2:
+#         answer = set(obj['0']).intersection(obj['1'])
+#         print(answer)
+#         print(len(answer))
+#         for xyz in answer:
+#             for i in range(0,2):
+#                 doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
+#                 for x, y, z in doit:
+#                     if xyz in x:
+#                         print(x)
+#                         print(y)
+#                         print(z)
+#                         break
+#
+#
+#     if count == 3:
+#
+#         answer = set(obj['0']).intersection(obj['1'],obj['2'])
+#         print(answer)
+#         print(len(answer))
+#         for xyz in answer:
+#             for i in range(0,3):
+#                 doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
+#                 for x, y, z in doit:
+#                     if xyz in x:
+#                         print(x)
+#                         print(y)
+#                         print(z)
+#                         break
+#
+#     if count == 4:
+#
+#         answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'])
+#         print(answer)
+#         print(len(answer))
+#         for xyz in answer:
+#             for i in range(0,4):
+#                 doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
+#                 for x, y, z in doit:
+#                     if xyz in x:
+#                         print(x)
+#                         print(y)
+#                         print(z)
+#                         break
+#
+#
+#     if count == 5:
+#
+#         answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'])
+#         print(answer)
+#         print(len(answer))
+#         for xyz in answer:
+#             for i in range(0,5):
+#                 doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
+#                 for x, y, z in doit:
+#                     if xyz in x:
+#                         print(x)
+#                         print(y)
+#                         print(z)
+#                         break
+#
+#
+#     if count == 6:
+#
+#         answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'])
+#         print(answer)
+#         print(len(answer))
+#         for xyz in answer:
+#             for i in range(0,6):
+#                 doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
+#                 for x, y, z in doit:
+#                     if xyz in x:
+#                         print(x)
+#                         print(y)
+#                         print(z)
+#                         break
+#
+#     if count == 7:
+#
+#         answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'])
+#         print(answer)
+#         print(len(answer))
+#         for xyz in answer:
+#             for i in range(0,7):
+#                 doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
+#                 for x, y, z in doit:
+#                     if xyz in x:
+#                         print(x)
+#                         print(y)
+#                         print(z)
+#                         break
+#
+#     if count == 8:
+#
+#         answer = []
+#         answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'])
+#         print(answer)
+#         print(len(answer))
+#         for xyz in answer:
+#             for i in range(0,8):
+#                 doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
+#                 for x, y, z in doit:
+#                     if xyz in x:
+#                         print(x)
+#                         print(y)
+#                         print(z)
+#                         break
+#
+#     if count == 9:
+#         answer = []
+#         answer = set(obj['0']).intersection(obj['0'], obj['1'], obj['2'], obj['3'], obj['4'], obj['5'], obj['6'],
+#                                             obj['7'],obj['8'])
+#
+#         print(answer)
+#         print(len(answer))
+#         for xyz in answer:
+#             for i in range(0,9):
+#                 doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
+#                 for x, y, z in doit:
+#                     if xyz in x:
+#                         print(x)
+#                         print(y)
+#                         print(z)
+#                         break
+#
+#     if count == 10:
+#         answer = []
+#         answer = set(obj['0']).intersection(obj['0'], obj['1'], obj['2'], obj['3'], obj['4'], obj['5'], obj['6'],
+#                                             obj['7'], obj['8'], obj['9'])
+#         print(answer)
+#         print(len(answer))
+#         for xyz in answer:
+#             for i in range(0,10):
+#                 doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
+#                 for x, y, z in doit:
+#                     if xyz in x:
+#                         print(x)
+#                         print(y)
+#                         print(z)
+#                         break
+#
+#     if count == 11:
+#         answer = []
+#         answer = set(obj['0']).intersection(obj['0'], obj['1'], obj['2'], obj['3'], obj['4'], obj['5'], obj['6'],
+#                                             obj['7'], obj['8'], obj['9'], obj['10'])
+#
+#         print(answer)
+#         print(len(answer))
+#         for xyz in answer:
+#             for i in range(0,11):
+#                 doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
+#                 for x, y, z in doit:
+#                     if xyz in x:
+#                         print(x)
+#                         print(y)
+#                         print(z)
+#                         break
+#
+#     if count == 12:
+#         answer = []
+#         answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9'],obj['10'],obj['11'])
+#         print(answer)
+#         print(len(answer))
+#         for xyz in answer:
+#             for i in range(0,12):
+#                 doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
+#                 for x, y, z in doit:
+#                     if xyz in x:
+#                         print(x)
+#                         print(y)
+#                         print(z)
+#                         break
+#
+#     if count == 13:
+#         answer = []
+#         answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9'],obj['10'],obj['11'],obj['12'])
+#         print(answer)
+#         print(len(answer))
+#         for xyz in answer:
+#             for i in range(0,13):
+#                 doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
+#                 for x, y, z in doit:
+#                     if xyz in x:
+#                         print(x)
+#                         print(y)
+#                         print(z)
+#                         break
+#
+#     if count == 14:
+#         answer = []
+#         answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9'],obj['10'],obj['11'],obj['12'],obj['13'])
+#         print(answer)
+#         print(len(answer))
+#         for xyz in answer:
+#             for i in range(0,14):
+#                 doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
+#                 for x, y, z in doit:
+#                     if xyz in x:
+#                         print(x)
+#                         print(y)
+#                         print(z)
+#                         break
+#
+#     if count == 15:
+#
+#         answer = []
+#         answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9'],obj['10'],obj['11'],obj['12'],obj['13'],obj['14'])
+#         print(answer)
+#         print(len(answer))
+#         for xyz in answer:
+#             for i in range(0,15):
+#                 doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
+#                 for x, y, z in doit:
+#                     if xyz in x:
+#                         print(x)
+#                         print(y)
+#                         print(z)
+#                         break
+#
+#     if count == 16:
+#
+#         answer = []
+#         answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9'],obj['10'],obj['11'],obj['12'],obj['13'],obj['14'],obj['15'])
+#         print(answer)
+#         print(len(answer))
+#         for xyz in answer:
+#             for i in range(0,16):
+#                 doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
+#                 for x, y, z in doit:
+#                     if xyz in x:
+#                         print(x)
+#                         print(y)
+#                         print(z)
+#                         break
+#
 
 
+def start():
+    url = 'https://www.youtube.com/watch?v=KoZM4M9U7GM'
+    url1 = 'https://www.youtube.com/watch?v=giSFVAjrpmA'
+    url2 = 'https://www.youtube.com/watch?v=7nMYcZ-0V1o'
+
+    vids = [url,url1]
+    all_comments = []
+    global vid_len
+    vid_len = len(vids)
 
 
+    obj = {}
+    for i in range(0, vid_len):
+        obj[str(i)] = []
 
 
-url = 'https://www.youtube.com/watch?v=KoZM4M9U7GM'
-url1 = 'https://www.youtube.com/watch?v=giSFVAjrpmA'
-url2 = 'https://www.youtube.com/watch?v=7nMYcZ-0V1o'
-
-vids = [url,url1]
-all_comments = []
-
-obj = {}
-for i in range(0, len(vids)):
-    obj[str(i)] = []
+    profile_url = {}
+    for i in range(0, vid_len):
+        profile_url[str(i)] = []
 
 
-profile_url = {}
-for i in range(0, len(vids)):
-    profile_url[str(i)] = []
+    comment = {}
+    for i in range(0, vid_len):
+        comment[str(i)] = []
+
+    zip_list = {}
+    for i in range(0, vid_len):
+        comment[str(i)] = []
 
 
-comment = {}
-for i in range(0, len(vids)):
-    comment[str(i)] = []
+    video_count = -1
 
-zip_list = {}
-for i in range(0, len(vids)):
-    comment[str(i)] = []
+    for x in vids:
+        o = urlparse(x)
+        video_id = o.query.split('v=')[1]
+        comment_count_request = requests.get('https://www.googleapis.com/youtube/v3/videos?part=id%2C++statistics&id='+video_id+'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM')
+        comment_count_json = comment_count_request.json()
+        comment_count = comment_count_json['items'][0]['statistics']['commentCount']
 
+        floorValue = math.ceil(int(comment_count)/100)
+        if floorValue == 0:
+         set_loop_counter = 1
+        else:
+         set_loop_counter = floorValue
 
-video_count = -1
+        print('Comment Count :: ',comment_count)
+        print('Loop Count :: ',set_loop_counter)
 
-for x in vids:
-    o = urlparse(x)
-    video_id = o.query.split('v=')[1]
-    comment_count_request = requests.get('https://www.googleapis.com/youtube/v3/videos?part=id%2C++statistics&id='+video_id+'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM')
-    comment_count_json = comment_count_request.json()
-    comment_count = comment_count_json['items'][0]['statistics']['commentCount']
-
-    floorValue = math.ceil(int(comment_count)/100)
-    if floorValue == 0:
-     set_loop_counter = 1
-    else:
-     set_loop_counter = floorValue
-
-    print('Comment Count :: ',comment_count)
-    print('Loop Count :: ',set_loop_counter)
-
-    for x in range(set_loop_counter):
-     if x == 0 and set_loop_counter == 1 :
-         video_count = video_count + 1
-         page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id+'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM&pageToken=')
-         page1_json = page1.json()
-         #print(page1_json['items'])
-         for y in range(int(comment_count)):
-             try:
-                 #print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
-                 obj[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
-                 profile_url[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
-                 comment[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
-
-
-             except IndexError:
-                 break
-         break
-     else:
-         if x == 0:
+        for x in range(set_loop_counter):
+         if x == 0 and set_loop_counter == 1 :
              video_count = video_count + 1
-             page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM')
+             page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id+'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM&pageToken=')
              page1_json = page1.json()
-             next = '&pageToken=' + page1_json['nextPageToken']
-
+             #print(page1_json['items'])
              for y in range(int(comment_count)):
                  try:
-
+                     #print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
                      obj[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
                      profile_url[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
                      comment[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
-                     #print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
 
 
                  except IndexError:
                      break
+             break
+         else:
+             if x == 0:
+                 video_count = video_count + 1
+                 page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM')
+                 page1_json = page1.json()
+                 next = '&pageToken=' + page1_json['nextPageToken']
 
-         elif x>0:
+                 for y in range(int(comment_count)):
+                     try:
 
-             page2 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id +'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM'+next)
-             page2_json = page2.json()
-             try:
-                 next = '&pageToken='+page2_json['nextPageToken']
-             except KeyError:
+                         obj[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
+                         profile_url[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
+                         comment[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
+                         #print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
+
+
+                     except IndexError:
+                         break
+
+             elif x>0:
+
+                 page2 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id +'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM'+next)
+                 page2_json = page2.json()
+                 try:
+                     next = '&pageToken='+page2_json['nextPageToken']
+                 except KeyError:
+                     pass
+
+                 for y in range(int(comment_count)):
+                     try:
+
+                         obj[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
+                         profile_url[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
+                         comment[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
+
+                     except IndexError:
+                         break
+
+
+             else:
                  pass
 
-             for y in range(int(comment_count)):
-                 try:
 
-                     obj[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
-                     profile_url[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
-                     comment[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
-
-                 except IndexError:
-                     break
-
-
-         else:
-             pass
-
-
-    #print('Finale')
-    #print(all_comments)
-    print('$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%')
-    print('$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%')
+        #print('Finale')
+        #print(all_comments)
+        print('$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%')
+        print('$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%')
 
 
 
+        def set_me(count):
+            if count == 1:
+                pass
 
-find_similar()
+            if count == 2:
+                answer = set(obj['0']).intersection(obj['1'])
+                print(answer)
+                print(len(answer))
+                for xyz in answer:
+                    for i in range(0, 2):
+                        doit = zip(obj[str(i)], profile_url[str(i)], comment[str(i)])
+                        for x, y, z in doit:
+                            if xyz in x:
+                                print(x)
+                                print(y)
+                                print(z)
+                                break
+
+            if count == 3:
+
+                answer = set(obj['0']).intersection(obj['1'], obj['2'])
+                print(answer)
+                print(len(answer))
+                for xyz in answer:
+                    for i in range(0, 3):
+                        doit = zip(obj[str(i)], profile_url[str(i)], comment[str(i)])
+                        for x, y, z in doit:
+                            if xyz in x:
+                                print(x)
+                                print(y)
+                                print(z)
+                                break
+
+            if count == 4:
+
+                answer = set(obj['0']).intersection(obj['0'], obj['1'], obj['2'], obj['3'])
+                print(answer)
+                print(len(answer))
+                for xyz in answer:
+                    for i in range(0, 4):
+                        doit = zip(obj[str(i)], profile_url[str(i)], comment[str(i)])
+                        for x, y, z in doit:
+                            if xyz in x:
+                                print(x)
+                                print(y)
+                                print(z)
+                                break
+
+            if count == 5:
+
+                answer = set(obj['0']).intersection(obj['0'], obj['1'], obj['2'], obj['3'], obj['4'])
+                print(answer)
+                print(len(answer))
+                for xyz in answer:
+                    for i in range(0, 5):
+                        doit = zip(obj[str(i)], profile_url[str(i)], comment[str(i)])
+                        for x, y, z in doit:
+                            if xyz in x:
+                                print(x)
+                                print(y)
+                                print(z)
+                                break
+
+            if count == 6:
+
+                answer = set(obj['0']).intersection(obj['0'], obj['1'], obj['2'], obj['3'], obj['4'], obj['5'])
+                print(answer)
+                print(len(answer))
+                for xyz in answer:
+                    for i in range(0, 6):
+                        doit = zip(obj[str(i)], profile_url[str(i)], comment[str(i)])
+                        for x, y, z in doit:
+                            if xyz in x:
+                                print(x)
+                                print(y)
+                                print(z)
+                                break
+
+            if count == 7:
+
+                answer = set(obj['0']).intersection(obj['0'], obj['1'], obj['2'], obj['3'], obj['4'], obj['5'],
+                                                    obj['6'])
+                print(answer)
+                print(len(answer))
+                for xyz in answer:
+                    for i in range(0, 7):
+                        doit = zip(obj[str(i)], profile_url[str(i)], comment[str(i)])
+                        for x, y, z in doit:
+                            if xyz in x:
+                                print(x)
+                                print(y)
+                                print(z)
+                                break
+
+            if count == 8:
+
+                answer = []
+                answer = set(obj['0']).intersection(obj['0'], obj['1'], obj['2'], obj['3'], obj['4'], obj['5'],
+                                                    obj['6'], obj['7'])
+                print(answer)
+                print(len(answer))
+                for xyz in answer:
+                    for i in range(0, 8):
+                        doit = zip(obj[str(i)], profile_url[str(i)], comment[str(i)])
+                        for x, y, z in doit:
+                            if xyz in x:
+                                print(x)
+                                print(y)
+                                print(z)
+                                break
+
+            if count == 9:
+                answer = []
+                answer = set(obj['0']).intersection(obj['0'], obj['1'], obj['2'], obj['3'], obj['4'], obj['5'],
+                                                    obj['6'],
+                                                    obj['7'], obj['8'])
+
+                print(answer)
+                print(len(answer))
+                for xyz in answer:
+                    for i in range(0, 9):
+                        doit = zip(obj[str(i)], profile_url[str(i)], comment[str(i)])
+                        for x, y, z in doit:
+                            if xyz in x:
+                                print(x)
+                                print(y)
+                                print(z)
+                                break
+
+            if count == 10:
+                answer = []
+                answer = set(obj['0']).intersection(obj['0'], obj['1'], obj['2'], obj['3'], obj['4'], obj['5'],
+                                                    obj['6'],
+                                                    obj['7'], obj['8'], obj['9'])
+                print(answer)
+                print(len(answer))
+                for xyz in answer:
+                    for i in range(0, 10):
+                        doit = zip(obj[str(i)], profile_url[str(i)], comment[str(i)])
+                        for x, y, z in doit:
+                            if xyz in x:
+                                print(x)
+                                print(y)
+                                print(z)
+                                break
+
+            if count == 11:
+                answer = []
+                answer = set(obj['0']).intersection(obj['0'], obj['1'], obj['2'], obj['3'], obj['4'], obj['5'],
+                                                    obj['6'],
+                                                    obj['7'], obj['8'], obj['9'], obj['10'])
+
+                print(answer)
+                print(len(answer))
+                for xyz in answer:
+                    for i in range(0, 11):
+                        doit = zip(obj[str(i)], profile_url[str(i)], comment[str(i)])
+                        for x, y, z in doit:
+                            if xyz in x:
+                                print(x)
+                                print(y)
+                                print(z)
+                                break
+
+            if count == 12:
+                answer = []
+                answer = set(obj['0']).intersection(obj['0'], obj['1'], obj['2'], obj['3'], obj['4'], obj['5'],
+                                                    obj['6'], obj['7'], obj['8'], obj['9'], obj['10'], obj['11'])
+                print(answer)
+                print(len(answer))
+                for xyz in answer:
+                    for i in range(0, 12):
+                        doit = zip(obj[str(i)], profile_url[str(i)], comment[str(i)])
+                        for x, y, z in doit:
+                            if xyz in x:
+                                print(x)
+                                print(y)
+                                print(z)
+                                break
+
+            if count == 13:
+                answer = []
+                answer = set(obj['0']).intersection(obj['0'], obj['1'], obj['2'], obj['3'], obj['4'], obj['5'],
+                                                    obj['6'], obj['7'], obj['8'], obj['9'], obj['10'], obj['11'],
+                                                    obj['12'])
+                print(answer)
+                print(len(answer))
+                for xyz in answer:
+                    for i in range(0, 13):
+                        doit = zip(obj[str(i)], profile_url[str(i)], comment[str(i)])
+                        for x, y, z in doit:
+                            if xyz in x:
+                                print(x)
+                                print(y)
+                                print(z)
+                                break
+
+            if count == 14:
+                answer = []
+                answer = set(obj['0']).intersection(obj['0'], obj['1'], obj['2'], obj['3'], obj['4'], obj['5'],
+                                                    obj['6'], obj['7'], obj['8'], obj['9'], obj['10'], obj['11'],
+                                                    obj['12'], obj['13'])
+                print(answer)
+                print(len(answer))
+                for xyz in answer:
+                    for i in range(0, 14):
+                        doit = zip(obj[str(i)], profile_url[str(i)], comment[str(i)])
+                        for x, y, z in doit:
+                            if xyz in x:
+                                print(x)
+                                print(y)
+                                print(z)
+                                break
+
+            if count == 15:
+
+                answer = []
+                answer = set(obj['0']).intersection(obj['0'], obj['1'], obj['2'], obj['3'], obj['4'], obj['5'],
+                                                    obj['6'], obj['7'], obj['8'], obj['9'], obj['10'], obj['11'],
+                                                    obj['12'], obj['13'], obj['14'])
+                print(answer)
+                print(len(answer))
+                for xyz in answer:
+                    for i in range(0, 15):
+                        doit = zip(obj[str(i)], profile_url[str(i)], comment[str(i)])
+                        for x, y, z in doit:
+                            if xyz in x:
+                                print(x)
+                                print(y)
+                                print(z)
+                                break
+
+            if count == 16:
+
+                answer = []
+                answer = set(obj['0']).intersection(obj['0'], obj['1'], obj['2'], obj['3'], obj['4'], obj['5'],
+                                                    obj['6'], obj['7'], obj['8'], obj['9'], obj['10'], obj['11'],
+                                                    obj['12'], obj['13'], obj['14'], obj['15'])
+                print(answer)
+                print(len(answer))
+                for xyz in answer:
+                    for i in range(0, 16):
+                        doit = zip(obj[str(i)], profile_url[str(i)], comment[str(i)])
+                        for x, y, z in doit:
+                            if xyz in x:
+                                print(x)
+                                print(y)
+                                print(z)
+                                break
+
+    set_me(vid_len)
+
+
+start()
+
+#find_similar()
 
 
 
