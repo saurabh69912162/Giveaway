@@ -42,6 +42,7 @@ def set_me(count):
         print(len(answer))
         for xyz in answer:
             for i in range(0,len(answer)+1):
+            for i in range(0,3):
                 doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
                 for x, y, z in doit:
                     if xyz in x:
