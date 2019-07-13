@@ -150,7 +150,7 @@ html {
       <div class="well">
          <form action="/winner/" method="POST">
           {% csrf_token %}
-          <button class="btn btn-danger" type="submit" name="youtube">Youtube Comments</button>
+          <button class="btn btn-danger" type="submit" value="{{giveaway_id}}" name="youtube">Youtube Comments</button>
       </form>
       </div>
     </div>

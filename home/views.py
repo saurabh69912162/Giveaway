@@ -334,8 +334,13 @@ def winner(request):
 
         if "youtube" in request.POST:
             name = "yt"
-            uid = request.POST['youtube']
-            return render(request, 'home/winner.html', {'name':name,})
+            giveaway_id = request.POST['youtube']
+
+            model2 = apps.get_model('details', 'giveaway_rule')
+            obj = model2.objects.filter(giveaway_id=giveaway_id)
+
+            context = {'obj':obj,'name':name}
+            return render(request, 'home/winner.html', context)
 
         if "twitter" in request.POST:
             name = "twitter"
