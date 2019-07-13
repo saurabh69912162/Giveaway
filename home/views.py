@@ -489,6 +489,9 @@ def start(vids_list):
                 pass
 
             if count == 2:
+                name_user = []
+                url_user = []
+                comment_user = []
                 answer = set(obj['0']).intersection(obj['1'])
                 print(answer)
                 print(len(answer))
@@ -497,12 +500,16 @@ def start(vids_list):
                         doit = zip(obj[str(i)], profile_url[str(i)], comment[str(i)])
                         for x, y, z in doit:
                             if xyz in x:
-                                print(x)
-                                print(y)
-                                print(z)
+                                name_user.append(x)
+                                url_user.append(y)
+                                comment_user.append(z)
                                 break
+                return name_user, url_user, comment_user
 
             if count == 3:
+                name_user = []
+                url_user = []
+                comment_user = []
 
                 answer = set(obj['0']).intersection(obj['1'], obj['2'])
                 print(answer)
@@ -512,10 +519,13 @@ def start(vids_list):
                         doit = zip(obj[str(i)], profile_url[str(i)], comment[str(i)])
                         for x, y, z in doit:
                             if xyz in x:
-                                print(x)
-                                print(y)
-                                print(z)
+                                name_user.append(x)
+                                url_user.append(y)
+                                comment_user.append(z)
                                 break
+                return name_user,url_user,comment_user
+
+
 
             if count == 4:
 
@@ -734,7 +744,7 @@ def start(vids_list):
                                 print(z)
                                 break
 
-    set_me(vid_len)
+    return set_me(vid_len)
 
 
 
@@ -748,7 +758,9 @@ def ytcomments(request,giveaway_id):
             if x.youtube_comment:
                 vids_list.append(x.youtube_comment)
 
-    start(vids_list)
+    name_user,url_user,comment_user = start(vids_list)
+    for x in name_user:
+        print(x)
 
 
     context = {'vids_list':vids_list,}
