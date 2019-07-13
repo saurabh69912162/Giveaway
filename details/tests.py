@@ -200,9 +200,8 @@ def set_me(count):
                         break
 
     if count == 13:
-        print(set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9'],obj['10'],obj['11'],obj['12']))
         answer = []
-        answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'])
+        answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9'],obj['10'],obj['11'],obj['12'])
         print(answer)
         print(len(answer))
         for xyz in answer:
@@ -216,9 +215,8 @@ def set_me(count):
                         break
 
     if count == 14:
-        print(set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9'],obj['10'],obj['11'],obj['12'],obj['13']))
         answer = []
-        answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'])
+        answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9'],obj['10'],obj['11'],obj['12'],obj['13'])
         print(answer)
         print(len(answer))
         for xyz in answer:
@@ -232,9 +230,9 @@ def set_me(count):
                         break
 
     if count == 15:
-        print(set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9'],obj['10'],obj['11'],obj['12'],obj['13'],obj['14']))
+
         answer = []
-        answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'])
+        answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9'],obj['10'],obj['11'],obj['12'],obj['13'],obj['14'])
         print(answer)
         print(len(answer))
         for xyz in answer:
@@ -248,9 +246,9 @@ def set_me(count):
                         break
 
     if count == 16:
-        print(set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9'],obj['10'],obj['11'],obj['12'],obj['13'],obj['14'],obj['15']))
+
         answer = []
-        answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'])
+        answer = set(obj['0']).intersection(obj['0'],obj['1'],obj['2'],obj['3'],obj['4'],obj['5'],obj['6'],obj['7'],obj['8'],obj['9'],obj['10'],obj['11'],obj['12'],obj['13'],obj['14'],obj['15'])
         print(answer)
         print(len(answer))
         for xyz in answer:
