@@ -312,8 +312,11 @@ def endpage(request,user,giveaway_id):
             model1 = apps.get_model('details', 'new_giveaway')
             obj = model1.objects.filter(username=request.user, giveaway_id=giveaway_id)
 
+            model2 = apps.get_model('details', 'giveaway_rule')
+            obj1 = model2.objects.filter(giveaway_id=giveaway_id)
 
-            return render(request, 'home/endgiveaway.html', {'obj':obj,'giveaway_id':giveaway_id})
+
+            return render(request, 'home/endgiveaway.html', {'obj':obj,'giveaway_id':giveaway_id,'obj1':obj1})
 
         else:
             return redirect('/')
