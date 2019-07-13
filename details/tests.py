@@ -41,13 +41,12 @@ def set_me(count):
         print(answer)
         print(len(answer))
         for xyz in answer:
-            for i in range(0,len(answer)):
+            for i in range(0,len(answer)+1):
                 doit = zip(obj[str(i)],profile_url[str(i)], comment[str(i)])
                 for x, y, z in doit:
                     if xyz in x:
                         print(x)
                         print(z)
-
                         break
 
     if count == 4:
@@ -98,7 +97,7 @@ url = 'https://www.youtube.com/watch?v=KoZM4M9U7GM'
 url1 = 'https://www.youtube.com/watch?v=giSFVAjrpmA'
 url2 = 'https://www.youtube.com/watch?v=7nMYcZ-0V1o'
 
-vids = [url,url1,url2]
+vids = [url,url1,url]
 all_comments = []
 
 obj = {}
