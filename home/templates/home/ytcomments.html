@@ -47,13 +47,13 @@
     </div>
 <hr/>
 <div class="container">
-{% set count = 1 %}
+
 {% for i,a,b,c in random_list %}
 
 <div class="well">
 
-    <h4>{{ count }}</h4>
-    {% set count = count + i %}
+    <h4>{{ i }}</h4>
+
     <h4>Name :: <a href="{{b}}">{{a}}</a></h4>
     <h5>Comment :: {{c}}</h5>
 </div>
