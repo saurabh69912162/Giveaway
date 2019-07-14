@@ -21,21 +21,43 @@
         </div>
 
     <div class="nav navbar-nav navbar-left">
-
             <a href="/" class="btn btn-success">Home</a>
             <a href="/cr-admin" class="btn btn-success">Admin Panel</a>
+            <a href="#comments" class="btn btn-danger">All Comments</a>
+            <a href="#winner" class="btn btn-danger">Winners</a>
 
         </div>
 {% endif %}
 
 </div>
-<div class="container">
 
-<h1>Winners !!!</h1>
+<hr/>
+<a name="winner"></a>
+<div class="container">
+{% for i,a,b,c in random_list %}
+<ul>
+
+    {% if 'Creative Pavan' not in a %}
+
+
+    <button class="btn btn-danger">WINNER</button><h4><strong>Name : </strong><a href="{{b}}">{{a}}</a></h4>
+        <div class="alert alert-info" role="alert">
+  <h5><strong>Comment : </strong>{{c}}</h5>
+        </div>
+
+
+
+{% endif %}
+    {% endfor %}
+</ul>
+</div>
+<div class="container">
+<a name="comments"></a>
+<h1>All Comments !!!</h1>
     {% for x,y,z in win_zip %}
     {% if 'Creative Pavan' not in x %}
 <div class="well">
-     {{ loop.index }}
+
     <h4>Name :: <a href="{{y}}">{{x}}</a></h4>
     <h5>Comment :: {{z}}</h5>
 </div>
@@ -45,22 +67,5 @@
 
 
     </div>
-<hr/>
-<div class="container">
-
-{% for i,a,b,c in random_list %}
-
-<div class="well">
-    {% if i == 0%}
-    <h1 style="color:red">Winner</h1>
-    {% else %}
-    <h4 style="color:green">Winner {{ i }}  </h4>
-    {% endif %}
-    <h4>Name :: <a href="{{b}}">{{a}}</a></h4>
-    <h5>Comment :: {{c}}</h5>
-</div>
-
-{% endfor %}
-</div>
 </body>
 </html>
