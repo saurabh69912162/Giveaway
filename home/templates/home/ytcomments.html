@@ -36,12 +36,27 @@
     {% if 'Creative Pavan' not in x %}
 <div class="well">
 
-    <h4>Name :: <a href="{{z}}">{{x}}</a></h4>
+    <h4>Name :: <a href="{{y}}">{{x}}</a></h4>
     <h5>Comment :: {{z}}</h5>
 </div>
     {% endif %}
 {% endfor%}
-    </div>
 
+
+
+    </div>
+<hr/>
+<div class="container">
+
+{% for i,a,b,c in random_list %}
+
+<div class="well">
+    <h3>{{i}}</h3>
+    <h4>Name :: <a href="{{b}}">{{a}}</a></h4>
+    <h5>Comment :: {{c}}</h5>
+</div>
+
+{% endfor %}
+</div>
 </body>
 </html>

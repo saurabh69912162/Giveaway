@@ -4,6 +4,7 @@ from django.shortcuts import redirect
 from django.shortcuts import render, get_object_or_404
 from .models import *
 from details.models import *
+from itertools import count
 from django.apps import apps
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
@@ -759,18 +760,20 @@ def ytcomments(request,giveaway_id):
                 vids_list.append(x.youtube_comment)
 
     name_user,url_user,comment_user = start(vids_list)
+
+
     win_zip = zip(name_user,url_user,comment_user)
+    win_zip1 = list(zip(name_user, url_user, comment_user))
 
-    random.shuffle(win_zip)
+    random.shuffle(win_zip1)
 
-    name_user, url_user, comment_user = zip(*win_zip)
+    a,b,c = zip(*win_zip1)
+    random_list = zip(count(),a,b,c)
 
-    print(name_user)
-    print(url_user)
-    print(comment_user)
     # print(random.sample(range(0, len(name_user)), len(name_user)))
 
     context = {'vids_list':vids_list,
               'win_zip':win_zip,
+               'random_list':random_list,
                 }
     return render(request, 'home/ytcomments.html',context)
