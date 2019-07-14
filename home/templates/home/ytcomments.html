@@ -35,7 +35,7 @@
     {% for x,y,z in win_zip %}
     {% if 'Creative Pavan' not in x %}
 <div class="well">
-
+     {{ loop.index }}
     <h4>Name :: <a href="{{y}}">{{x}}</a></h4>
     <h5>Comment :: {{z}}</h5>
 </div>
@@ -47,11 +47,13 @@
     </div>
 <hr/>
 <div class="container">
-
+{% set count = 1 %}
 {% for i,a,b,c in random_list %}
 
 <div class="well">
-    <h3>{{i}}</h3>
+
+    <h4>{{ count }}</h4>
+    {% set count = count + i %}
     <h4>Name :: <a href="{{b}}">{{a}}</a></h4>
     <h5>Comment :: {{c}}</h5>
 </div>
