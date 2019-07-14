@@ -51,9 +51,11 @@
 {% for i,a,b,c in random_list %}
 
 <div class="well">
-
-    <h4>{{ i+1 }}</h4>
-
+    {% if i == 0%}
+    <h1 style="color:red">Winner</h1>
+    {% else %}
+    <h4 style="color:green">Winner {{ i }}  </h4>
+    {% endif %}
     <h4>Name :: <a href="{{b}}">{{a}}</a></h4>
     <h5>Comment :: {{c}}</h5>
 </div>
