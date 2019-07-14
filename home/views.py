@@ -760,7 +760,15 @@ def ytcomments(request,giveaway_id):
 
     name_user,url_user,comment_user = start(vids_list)
     win_zip = zip(name_user,url_user,comment_user)
-    print(random.sample(range(0, len(name_user)), len(name_user)))
+
+    random.shuffle(win_zip)
+
+    name_user, url_user, comment_user = zip(*win_zip)
+
+    print(name_user)
+    print(url_user)
+    print(comment_user)
+    # print(random.sample(range(0, len(name_user)), len(name_user)))
 
     context = {'vids_list':vids_list,
               'win_zip':win_zip,
