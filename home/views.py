@@ -793,11 +793,6 @@ def add_modify_rules(request,user,giveaway_id):
 
     form = rules_form()
     if request.method == 'POST':
-        form = rules_form(request.POST)
-        if form.is_valid():
-            form.save(commit=False)
-            form.giveaway_name = obj1.giveaway_title
-            form.username = user_obj
-            form.giveaway_id = giveaway_id
-            form.save()
+        if 'Rule' in request.POST:
+            print(request.POST['Rule'])
     return render(request,'home/add_modify_rules.html',{'form':form,'obj':obj})

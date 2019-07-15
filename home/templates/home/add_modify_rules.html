@@ -39,10 +39,12 @@
 <div class="well">
 
 <form action="." method="POST">
-
+{% csrf_token %}
     <div class="form-group">
         <h3>Select rule for giveaway.</h3>
-<p>        <select name="Rule">
+<p>
+    <select class="form-control" name="Rule" required>
+  <option value="" disabled selected>Choose your option</option>
   <option value="insta_profile_follow">Instagram Profile Follow</option>
   <option value="insta_post">Instagram Post Like</option>
   <option value="insta_comment">Instagram Post Comment</option>
@@ -59,11 +61,10 @@
     <option value="youtube_like">Like A Youtube Video</option>
   <option value="youtube_share">Share A Youtube Video</option>
   <option value="go_to_this_link">Go to this Link </option>
-
  </div>
-
 </select></p>
 <p>
+    <p>Enter your Link : <input class="form-control" name="link" type="text" required></p>
 <input type="submit" class="btn btn-success"></p>
 </div>
 </form>
