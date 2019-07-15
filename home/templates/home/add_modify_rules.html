@@ -37,13 +37,36 @@
 <div class="collapse" id="collapseExample">
 <div class="card card-body">
 <div class="well">
+
 <form action="." method="POST">
-<div class="form-group">
-{% csrf_token %}
-{{form.as_p}}
-<input type="submit" class="btn btn-success">
+
+    <div class="form-group">
+        <h3>Select rule for giveaway.</h3>
+<p>        <select name="Rule">
+  <option value="insta_profile_follow">Instagram Profile Follow</option>
+  <option value="insta_post">Instagram Post Like</option>
+  <option value="insta_comment">Instagram Post Comment</option>
+  <option value="facebook_profile_like">Facebook Page Like</option>
+    <option value="facebook_post_like">Volvo</option>
+  <option value="facebook_post_share">facebook_post_comment</option>
+  <option value="twitter_profile_follow">Fiat</option>
+  <option value="tweet_like">Audi</option>
+    <option value="tweet_comment">Volvo</option>
+  <option value="retweet">Saab</option>
+  <option value="youtube_subscibe">Fiat</option>
+  <option value="youtube_comment">Audi</option>
+    <option value="youtube_like">Volvo</option>
+  <option value="youtube_share">Saab</option>
+  <option value="go_to_this_link">Fiat</option>
+
+ </div>
+
+</select></p>
+<p>
+<input type="submit" class="btn btn-success"></p>
 </div>
 </form>
+
 </div>
 </div>
 </div>
