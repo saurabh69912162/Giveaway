@@ -780,6 +780,7 @@ def ytcomments(request,giveaway_id):
                 }
     return render(request, 'home/ytcomments.html',context)
 
+from django.db.models import Max
 
 def add_modify_rules(request,user,giveaway_id):
 
@@ -788,6 +789,10 @@ def add_modify_rules(request,user,giveaway_id):
 
     model = apps.get_model('details', 'giveaway_rule')
     obj = model.objects.filter(giveaway_id = giveaway_id)
+    max_rating = model.objects.filter(giveaway_id = giveaway_id).aggregate(Max('sequence_number'))
+
+
+
 
     user_obj = user_details.objects.get(username = user)
 
