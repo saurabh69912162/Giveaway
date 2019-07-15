@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>adminonly</title>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <style>
+<meta charset="UTF-8">
+<title>adminonly</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<style>
 html {
   box-sizing: border-box;
 }
@@ -118,7 +118,7 @@ html {
           <p><strong>Winners</strong> - {{x.number_of_winners}}</p>
           <p><strong>Start</strong> - {{x.start_date}}</p>
           <p><strong>End</strong> - {{x.end_date}}</p>
-        <p><a href="#" class="btn btn-success">Check Statistics</a> <a href="#" class="btn btn-success">Add/Modify Rules</a></p>
+        <p><a href="#" class="btn btn-success">Check Statistics</a> <a href="{% url 'add_modify_rules' x.username x.giveaway_id  %}" class="btn btn-success">Add/Modify Rules</a></p>
       </div>
     </div>
   </div>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Modify Rules</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+    <h1>Current Rules</h1>
+
+<hr/>
+
+    <h1>Add New Rule</h1>
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Add
+  </button>
+
+
+<div class="collapse" id="collapseExample">
+<div class="card card-body">
+<div class="well">
+<form action="." method="POST">
+<div class="form-group">
+{% csrf_token %}
+{{form.as_p}}
+<input type="submit" class="btn btn-success">
+</div>
+</form>
+</div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
+
+
+

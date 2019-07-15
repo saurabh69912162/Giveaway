@@ -777,3 +777,9 @@ def ytcomments(request,giveaway_id):
                'random_list':random_list,
                 }
     return render(request, 'home/ytcomments.html',context)
+
+
+def add_modify_rules(request,user,giveaway_id):
+    model = apps.get_model('details', 'giveaway_rule')
+    form = rules_form()
+    return render(request,'home/add_modify_rules.html',{'form':form,})

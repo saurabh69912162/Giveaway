@@ -31,6 +31,7 @@ urlpatterns = [
     path('home/', views.profile, name='home'),
     url(r'^winner/$', views.winner, name='winner'),
     #url(r'^(?P<user>[-\w|\W]+)/end-giveaway/(?P<giveaway_id>[\w|\W]+)/winner/$', views.winner, name='winner'),
+    url(r'^(?P<user>[-\w|\W]+)/(?P<giveaway_id>[\w|\W]+)/add_or_modify_rules/$', views.add_modify_rules, name='add_modify_rules'),
     url(r'^(?P<user>[-\w|\W]+)/end-giveaway/(?P<giveaway_id>[\w|\W]+)/$', views.endpage, name='endpage'),
     url(r'^(?P<user>[-\w|\W]+)/(?P<giveaway_id>[\w|\W]+)/$', views.detailpage, name='detailpage'),
     url(r'^(?P<user>[-\w|\W]+)/$', views.user, name='user'),
