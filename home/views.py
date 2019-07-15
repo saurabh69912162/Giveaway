@@ -763,6 +763,8 @@ def ytcomments(request,giveaway_id):
 
 
     win_zip = zip(name_user,url_user,comment_user)
+
+
     win_zip1 = list(zip(name_user, url_user, comment_user))
 
     random.shuffle(win_zip1)
@@ -781,5 +783,6 @@ def ytcomments(request,giveaway_id):
 
 def add_modify_rules(request,user,giveaway_id):
     model = apps.get_model('details', 'giveaway_rule')
+    obj = model.objects.filter(giveaway_id = giveaway_id)
     form = rules_form()
-    return render(request,'home/add_modify_rules.html',{'form':form,})
+    return render(request,'home/add_modify_rules.html',{'form':form,'obj':obj})
