@@ -789,10 +789,141 @@ def add_modify_rules(request,user,giveaway_id):
     model = apps.get_model('details', 'giveaway_rule')
     obj = model.objects.filter(giveaway_id = giveaway_id)
 
-    user_obj = User.objects.get(username = user)
+    user_obj = user_details.objects.get(username = user)
 
     form = rules_form()
     if request.method == 'POST':
         if 'Rule' in request.POST:
-            print(request.POST['Rule'])
+            if 'insta_profile_follow' in request.POST['Rule']:
+                obj12 = model()
+                obj12.giveaway_name = obj1.giveaway_title
+                obj12.username = user_obj
+                obj12.sequence_number = 99
+                obj12.giveaway_id = giveaway_id
+                obj12.insta_profile_follow = request.POST['link']
+                obj12.save()
+
+            if 'insta_post' in request.POST['Rule']:
+                obj12 = model()
+                obj12.giveaway_name = obj1.giveaway_title
+                obj12.username = user_obj
+                obj12.sequence_number = 99
+                obj12.giveaway_id = giveaway_id
+                obj12.insta_post = request.POST['link']
+                obj12.save()
+            if 'insta_comment' in request.POST['Rule']:
+                obj12 = model()
+                obj12.giveaway_name = obj1.giveaway_title
+                obj12.username = user_obj
+                obj12.sequence_number = 99
+                obj12.giveaway_id = giveaway_id
+                obj12.insta_comment = request.POST['link']
+                obj12.save()
+            if 'facebook_profile_like' in request.POST['Rule']:
+                obj12 = model()
+                obj12.giveaway_name = obj1.giveaway_title
+                obj12.username = user_obj
+                obj12.sequence_number = 99
+                obj12.giveaway_id = giveaway_id
+                obj12.facebook_profile_like = request.POST['link']
+                obj12.save()
+            if 'facebook_post_like' in request.POST['Rule']:
+                obj12 = model()
+                obj12.giveaway_name = obj1.giveaway_title
+                obj12.username = user_obj
+                obj12.sequence_number = 99
+                obj12.giveaway_id = giveaway_id
+                obj12.facebook_post_like = request.POST['link']
+                obj12.save()
+            if 'facebook_post_comment' in request.POST['Rule']:
+                obj12 = model()
+                obj12.giveaway_name = obj1.giveaway_title
+                obj12.username = user_obj
+                obj12.sequence_number = 99
+                obj12.giveaway_id = giveaway_id
+                obj12.facebook_post_comment = request.POST['link']
+                obj12.save()
+            if 'facebook_post_share' in request.POST['Rule']:
+                obj12 = model()
+                obj12.giveaway_name = obj1.giveaway_title
+                obj12.username = user_obj
+                obj12.sequence_number = 99
+                obj12.giveaway_id = giveaway_id
+                obj12.facebook_post_share = request.POST['link']
+                obj12.save()
+            if 'twitter_profile_follow' in request.POST['Rule']:
+                obj12 = model()
+                obj12.giveaway_name = obj1.giveaway_title
+                obj12.username = user_obj
+                obj12.sequence_number = 99
+                obj12.giveaway_id = giveaway_id
+                obj12.twitter_profile_follow = request.POST['link']
+                obj12.save()
+            if 'tweet_like' in request.POST['Rule']:
+                obj12 = model()
+                obj12.giveaway_name = obj1.giveaway_title
+                obj12.username = user_obj
+                obj12.sequence_number = 99
+                obj12.giveaway_id = giveaway_id
+                obj12.tweet_like = request.POST['link']
+                obj12.save()
+            if 'tweet_comment' in request.POST['Rule']:
+                obj12 = model()
+                obj12.giveaway_name = obj1.giveaway_title
+                obj12.username = user_obj
+                obj12.sequence_number = 99
+                obj12.giveaway_id = giveaway_id
+                obj12.tweet_comment = request.POST['link']
+                obj12.save()
+            if 'retweet' in request.POST['Rule']:
+                obj12 = model()
+                obj12.giveaway_name = obj1.giveaway_title
+                obj12.username = user_obj
+                obj12.sequence_number = 99
+                obj12.giveaway_id = giveaway_id
+                obj12.retweet = request.POST['link']
+                obj12.save()
+            if 'youtube_subscibe' in request.POST['Rule']:
+                obj12 = model()
+                obj12.giveaway_name = obj1.giveaway_title
+                obj12.username = user_obj
+                obj12.sequence_number = 99
+                obj12.giveaway_id = giveaway_id
+                obj12.youtube_subscibe = request.POST['link']
+                obj12.save()
+            if 'youtube_comment' in request.POST['Rule']:
+                obj12 = model()
+                obj12.giveaway_name = obj1.giveaway_title
+                obj12.username = user_obj
+                obj12.sequence_number = 99
+                obj12.giveaway_id = giveaway_id
+                obj12.youtube_comment = request.POST['link']
+                obj12.save()
+            if 'youtube_like' in request.POST['Rule']:
+                obj12 = model()
+                obj12.giveaway_name = obj1.giveaway_title
+                obj12.username = user_obj
+                obj12.sequence_number = 99
+                obj12.giveaway_id = giveaway_id
+                obj12.youtube_like = request.POST['link']
+                obj12.save()
+            if 'go_to_this_link' in request.POST['Rule']:
+                obj12 = model()
+                obj12.giveaway_name = obj1.giveaway_title
+                obj12.username = user_obj
+                obj12.sequence_number = 99
+                obj12.giveaway_id = giveaway_id
+                obj12.go_to_this_link = request.POST['link']
+                obj12.save()
+            if 'youtube_share' in request.POST['Rule']:
+                obj12 = model()
+                obj12.giveaway_name = obj1.giveaway_title
+                obj12.username = user_obj
+                obj12.sequence_number = 99
+                obj12.giveaway_id = giveaway_id
+                obj12.youtube_share = request.POST['link']
+                obj12.save()
     return render(request,'home/add_modify_rules.html',{'form':form,'obj':obj})
+
+
+
