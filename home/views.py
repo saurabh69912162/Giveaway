@@ -782,7 +782,20 @@ def ytcomments(request,giveaway_id):
 
 
 def add_modify_rules(request,user,giveaway_id):
+
+    model1 = apps.get_model('details', 'new_giveaway')
+    obj1 = model1.objects.get(giveaway_id=giveaway_id)
+
     model = apps.get_model('details', 'giveaway_rule')
     obj = model.objects.filter(giveaway_id = giveaway_id)
+
     form = rules_form()
+    if request.method == 'POST':
+        form = rules_form(request.POST)
+        if form.is_valid():
+            print(form)
+            # form.giveaway_name = 'Ferrari Giveaway'
+            # form.username = 'admin'
+            # form.giveaway_id = 'fe507380-0593-41c7-b25d-892704a282a0'
+            # form.save()
     return render(request,'home/add_modify_rules.html',{'form':form,'obj':obj})
