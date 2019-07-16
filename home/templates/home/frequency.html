@@ -12,9 +12,11 @@
 <a href="/cleanmydb" class="btn btn-danger" >Clean All Comments</a>
     <hr/>
     <h1> Comments Based On Frequency</h1>
-    {% for x in ok %}
+    {% for x in okay %}
     <div class="well">
-        {{x}}
+        <a href="{{x.url}}"><h3>{{x.name}}</h3></a>
+        <p>{{x.comment}}</p>
+        <p>Total Comments :: {{x.count}}</p>
     </div>
     {% endfor %}
 </div>

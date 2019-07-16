@@ -984,7 +984,7 @@ def comment_frequency(request,giveaway_id):
                         if check_exist:
                             model.objects.filter(url = page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl']).update(count=F('count') + 1)
                             obj = model.objects.get(url=page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
-                            obj.comment  += page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                            obj.comment  +=':: COMMENT ::' +  page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
                                 'textDisplay']
                             obj.save()
                         else:
@@ -1075,8 +1075,9 @@ def comment_frequency(request,giveaway_id):
 
 
     ok = sorted(set(model.objects.all().values_list('url').annotate(freq=Count("url"))), reverse=False)
+    okay = model.objects.all().order_by('-count',)
     #ok = set(model.objects.all().annotate(frequency = Count('url')))
-    return render(request,'home/frequency.html',{'ok':ok,})
+    return render(request,'home/frequency.html',{'okay':okay,})
 
 
 
