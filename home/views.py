@@ -991,7 +991,7 @@ def comment_frequency(request,giveaway_id):
                             obj_comment = model()
                             obj_comment.comment = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
                                 'textDisplay']
-                            obj_comment.name = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                            obj_comment.name = ':: COMMENT ::' + page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
                                 'authorDisplayName']
                             obj_comment.url = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
                                 'authorChannelUrl']
@@ -1015,7 +1015,7 @@ def comment_frequency(request,giveaway_id):
                                 'authorChannelUrl']).update(count=F('count') + 1)
                             obj = model.objects.get(
                                 url=page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
-                            obj.comment += page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                            obj.comment += ':: COMMENT ::' + page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
                                 'textDisplay']
                             obj.save()
                         else:
@@ -1053,7 +1053,7 @@ def comment_frequency(request,giveaway_id):
                                 'authorChannelUrl']).update(count=F('count') + 1)
                             obj = model.objects.get(
                                 url=page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
-                            obj.comment += page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                            obj.comment += ':: COMMENT ::' + page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
                                 'textDisplay']
                             obj.save()
                         else:
