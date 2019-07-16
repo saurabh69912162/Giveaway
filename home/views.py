@@ -933,6 +933,7 @@ def add_modify_rules(request,user,giveaway_id):
 from django.db.models import Count
 
 def comment_frequency(request,giveaway_id):
+    model = apps.get_model('details', 'comments')
     model2 = apps.get_model('details', 'giveaway_rule')
     obj = model2.objects.filter(giveaway_id=giveaway_id)
     vids_list = []
@@ -982,12 +983,18 @@ def comment_frequency(request,giveaway_id):
                 for y in range(int(comment_count)):
                     try:
                         # print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
-                        frequency_comment.append(
-                            page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
-                        frequency_name.append(
-                            page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
-                        frequency_url.append(
-                            page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
+                        obj_comment = model()
+                        obj_comment.comment = page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay']
+                        obj_comment.name = page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName']
+                        obj_comment.url = page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl']
+                        obj_comment.save()
+                        #
+                        # frequency_comment.append(
+                        #     page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
+                        # frequency_name.append(
+                        #     page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
+                        # frequency_url.append(
+                        #     page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
 
 
                     except IndexError:
@@ -1003,14 +1010,21 @@ def comment_frequency(request,giveaway_id):
 
                     for y in range(int(comment_count)):
                         try:
-                            frequency_comment.append(
-                                page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
-                            frequency_name.append(
-                                page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
-                            frequency_url.append(
-                                page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
+                            # frequency_comment.append(
+                            #     page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
+                            # frequency_name.append(
+                            #     page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
+                            # frequency_url.append(
+                            #     page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
 
-
+                        obj_comment = model()
+                        obj_comment.comment = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                            'textDisplay']
+                        obj_comment.name = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                            'authorDisplayName']
+                        obj_comment.url = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                            'authorChannelUrl']
+                        obj_comment.save()
 
                         except IndexError:
                             break
@@ -1027,21 +1041,28 @@ def comment_frequency(request,giveaway_id):
 
                     for y in range(int(comment_count)):
                         try:
-                            frequency_comment.append(
-                                page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
-                            frequency_name.append(
-                                page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
-                            frequency_url.append(
-                                page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
+                            # frequency_comment.append(
+                            #     page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
+                            # frequency_name.append(
+                            #     page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
+                            # frequency_url.append(
+                            #     page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
+                            obj_comment = model()
+                            obj_comment.comment = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'textDisplay']
+                            obj_comment.name = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'authorDisplayName']
+                            obj_comment.url = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'authorChannelUrl']
+                            obj_comment.save()
 
-                           
                         except IndexError:
                             break
 
                 else:
                     pass
 
-    model = apps.get_model('details', 'comments')
+
     ok = set(model.objects.all().values_list('url').annotate(freq=Count("url")))
     print(sorted(ok))
     return render(request,'home/frequency.html',{})
