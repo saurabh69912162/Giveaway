@@ -267,7 +267,7 @@ url = 'https://www.youtube.com/watch?v=KoZM4M9U7GM'
 url1 = 'https://www.youtube.com/watch?v=giSFVAjrpmA'
 url2 = 'https://www.youtube.com/watch?v=7nMYcZ-0V1o'
 
-vids = [url,url1]
+vids = [url]
 all_comments = []
 global vid_len
 vid_len = len(vids)
@@ -300,7 +300,8 @@ for video_count in vids:
             page1_json = page1.json()
             for y in range(int(comment_count)):
                 try:
-                    print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
+                    #print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
+                    frequency_url.append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
                 except IndexError:
                     break
 
@@ -309,10 +310,12 @@ for video_count in vids:
             page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM')
             page1_json = page1.json()
             next = '&pageToken=' + page1_json['nextPageToken']
+            print(next)
 
             for y in range(int(comment_count)):
                 try:
-                    print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
+                    frequency_url.append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
+                    #print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
                 except IndexError:
                     break
 
@@ -321,7 +324,7 @@ for video_count in vids:
             page1 = requests.get(
                 'https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM'+next)
             page1_json = page1.json()
-            print(next)
+
             try:
                 next = '&pageToken='+page1_json['nextPageToken']
             except KeyError:
@@ -329,13 +332,13 @@ for video_count in vids:
             #next = '&pageToken=' + page1_json['nextPageToken']
             for y in range(int(comment_count)):
                 try:
-                    print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
+                    frequency_url.append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
+                    #print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
                 except IndexError:
                     break
             print(next)
         else:
             print('hi',video_count)
-
 
 
 #
