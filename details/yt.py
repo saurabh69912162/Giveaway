@@ -278,119 +278,123 @@ frequency_url = []
 frequency = []
 
 
-obj = {}
-for i in range(0, vid_len):
-    obj[str(i)] = []
 
 
-profile_url = {}
-for i in range(0, vid_len):
-    profile_url[str(i)] = []
 
-
-comment = {}
-for i in range(0, vid_len):
-    comment[str(i)] = []
-
-zip_list = {}
-for i in range(0, vid_len):
-    comment[str(i)] = []
-
-
-video_count = -1
-
-for x in vids:
-    o = urlparse(x)
-    video_id = o.query.split('v=')[1]
-
-    comment_count_request = requests.get('https://www.googleapis.com/youtube/v3/videos?part=id%2C++statistics&id='+video_id+'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM')
-    comment_count_json = comment_count_request.json()
-    comment_count = comment_count_json['items'][0]['statistics']['commentCount']
-
-    floorValue = math.ceil(int(comment_count)/100)
-    if floorValue == 0:
-     set_loop_counter = 1
-    else:
-     set_loop_counter = floorValue
-
-    print('Comment Count :: ',comment_count)
-    print('Loop Count :: ',set_loop_counter)
-
-    for x in range(set_loop_counter):
-     if x == 0 and set_loop_counter == 1 :
-         video_count = video_count + 1
-         page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id+'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM&pageToken=')
-         page1_json = page1.json()
-         #print(page1_json['items'])
-         for y in range(int(comment_count)):
-             try:
-                 #print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
-                 frequency_comment.append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
-                 frequency_name.append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
-                 frequency_url.append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
-                 # obj[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
-                 # profile_url[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
-                 # comment[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
-
-
-             except IndexError:
-                 break
-         break
-     else:
-         if x == 0:
-             video_count = video_count + 1
-             page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM')
-             page1_json = page1.json()
-             next = '&pageToken=' + page1_json['nextPageToken']
-
-             for y in range(int(comment_count)):
-                 try:
-                     frequency_comment.append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
-                     frequency_name.append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
-                     frequency_url.append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
-
-                     # obj[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
-                     # #profile_url[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
-                     # comment[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
-                     # #print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
-
-
-                 except IndexError:
-                     break
-
-         elif x>0:
-
-             page2 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id +'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM'+next)
-             page2_json = page2.json()
-             try:
-                 next = '&pageToken='+page2_json['nextPageToken']
-             except KeyError:
-                 pass
-
-             for y in range(int(comment_count)):
-                 try:
-                     frequency_comment.append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
-                     frequency_name.append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
-                     frequency_url.append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
-
-                     # obj[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
-                     # #profile_url[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
-                     # comment[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
-
-                 except IndexError:
-                     break
-
-         else:
-             pass
-
-
-#print('Finale')
-#print(all_comments)
-print('$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%')
-print('$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%')
-#final_zip = list(zip(frequency_name,frequency_comment,frequency_url))
-print(frequency_comment)
-print(len(frequency_comment))
+#
+# obj = {}
+# for i in range(0, vid_len):
+#     obj[str(i)] = []
+#
+#
+# profile_url = {}
+# for i in range(0, vid_len):
+#     profile_url[str(i)] = []
+#
+#
+# comment = {}
+# for i in range(0, vid_len):
+#     comment[str(i)] = []
+#
+# zip_list = {}
+# for i in range(0, vid_len):
+#     comment[str(i)] = []
+#
+#
+# video_count = -1
+#
+# for x in vids:
+#     o = urlparse(x)
+#     video_id = o.query.split('v=')[1]
+#
+#     comment_count_request = requests.get('https://www.googleapis.com/youtube/v3/videos?part=id%2C++statistics&id='+video_id+'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM')
+#     comment_count_json = comment_count_request.json()
+#     comment_count = comment_count_json['items'][0]['statistics']['commentCount']
+#
+#     floorValue = math.ceil(int(comment_count)/100)
+#     if floorValue == 0:
+#      set_loop_counter = 1
+#     else:
+#      set_loop_counter = floorValue
+#
+#     print('Comment Count :: ',comment_count)
+#     print('Loop Count :: ',set_loop_counter)
+#
+#     for x in range(set_loop_counter):
+#      if x == 0 and set_loop_counter == 1 :
+#          video_count = video_count + 1
+#          page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id+'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM&pageToken=')
+#          page1_json = page1.json()
+#          #print(page1_json['items'])
+#          for y in range(int(comment_count)):
+#              try:
+#                  #print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
+#                  frequency_comment.append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
+#                  frequency_name.append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
+#                  frequency_url.append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
+#                  # obj[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
+#                  # profile_url[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
+#                  # comment[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
+#
+#
+#              except IndexError:
+#                  break
+#          break
+#      else:
+#          if x == 0:
+#              video_count = video_count + 1
+#              page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM')
+#              page1_json = page1.json()
+#              next = '&pageToken=' + page1_json['nextPageToken']
+#
+#              for y in range(int(comment_count)):
+#                  try:
+#                      frequency_comment.append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
+#                      frequency_name.append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
+#                      frequency_url.append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
+#
+#                      # obj[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
+#                      # #profile_url[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
+#                      # comment[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
+#                      # #print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
+#
+#
+#                  except IndexError:
+#                      break
+#
+#          elif x>0:
+#
+#              page2 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id +'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM'+next)
+#              page2_json = page2.json()
+#              try:
+#                  next = '&pageToken='+page2_json['nextPageToken']
+#              except KeyError:
+#                  pass
+#
+#              for y in range(int(comment_count)):
+#                  try:
+#                      frequency_comment.append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
+#                      frequency_name.append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
+#                      frequency_url.append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
+#
+#                      # obj[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
+#                      # #profile_url[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
+#                      # comment[str(video_count)].append(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
+#
+#                  except IndexError:
+#                      break
+#
+#          else:
+#              pass
+#
+#
+# #print('Finale')
+# #print(all_comments)
+# print('$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%')
+# print('$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%')
+# #final_zip = list(zip(frequency_name,frequency_comment,frequency_url))
+# print(frequency_comment)
+# print(len(frequency_comment))
 
 
 # freq = {}

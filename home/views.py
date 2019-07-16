@@ -947,11 +947,6 @@ def comment_frequency(request,giveaway_id):
     global vid_len
     vid_len = len(vids)
 
-    frequency_comment = []
-    frequency_name = []
-    frequency_url = []
-    frequency = []
-
 
     video_count = -1
 
@@ -973,8 +968,8 @@ def comment_frequency(request,giveaway_id):
         print('Comment Count :: ', comment_count)
         print('Loop Count :: ', set_loop_counter)
 
-        for x in range(set_loop_counter):
-            if x == 0 and set_loop_counter == 1:
+        for z in range(set_loop_counter):
+            if z == 0 and set_loop_counter == 1:
                 video_count = video_count + 1
                 page1 = requests.get(
                     'https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM&pageToken=')
@@ -982,7 +977,6 @@ def comment_frequency(request,giveaway_id):
                 # print(page1_json['items'])
                 for y in range(int(comment_count)):
                     try:
-                        # print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
                         obj_comment = model()
                         obj_comment.comment = page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay']
                         obj_comment.name = page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName']
@@ -993,7 +987,7 @@ def comment_frequency(request,giveaway_id):
                         break
                 break
             else:
-                if x == 0:
+                if z == 0:
                     video_count = video_count + 1
                     page1 = requests.get(
                         'https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM')
@@ -1015,7 +1009,7 @@ def comment_frequency(request,giveaway_id):
                         except IndexError:
                             break
 
-                elif x > 0:
+                elif z > 0:
 
                     page2 = requests.get(
                         'https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM' + next1)
