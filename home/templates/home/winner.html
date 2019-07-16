@@ -29,26 +29,30 @@
 
 </div>
 <div class="container">
-    <h1>{{name}}</h1>
+
 
 {% if 'yt' in name %}
+
+    <h1 style="margin-top:25px;margin-bottom:25px">Creative Pavan ~ Youtube Giveaway !</h1>
 <div class="container">
+    <h4>Selected Videos</h4>
 {% for x in obj %}
         {% if x.sequence_number > 0%}
     <div class="well">
-        Comment on :: {{x.youtube_comment}}<br>
-        {% endif%}
+        <strong>{{x.youtube_comment}}</strong><br>
+
+
     </div>
-    {% endfor %}
+     {% endif%}
+{% endfor %}
 
 
 
-    <div class="well">
 
-        <a href="{% url 'ytcommentwinner' giveaway_id %}"  class="btn btn-danger">Declare Winner - Common Comments</a>
-        <a href="{% url 'youtubecommentfrequency' giveaway_id %}" class="btn btn-danger" >Declare Via Comment Frequency </a>
+        <a href="{% url 'ytcommentwinner' giveaway_id %}"  class="btn btn-danger">Declare Winner - Comments</a>
+        <a href="{% url 'youtubecommentfrequency' giveaway_id %}" class="btn btn-danger" >Declare Winner - Frequency </a>
 
-</div>
+
      {% endif%}
 </div>
 </div>

@@ -2,21 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Youtube Comment Winner - Frequency</title>
+    <title>Giveaway Result !</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
-<body>
+
+<body style="margin-top:50px;margin-bottom:50px;">
+
 <div class="container">
-<a href="/cleanmydb" class="btn btn-danger" >Clean All Comments</a>
+{% if request.user.is_authenticated %}
+        <div class="nav navbar-nav navbar-right">
+
+
+            <a href="/accounts/logout/" class="btn btn-danger">Logout</a>
+
+        </div>
+
+    <div class="nav navbar-nav navbar-left">
+
+            <a href="/" class="btn btn-success">Home</a>
+            <a href="/cr-admin" class="btn btn-success">Admin Panel</a>
+        <a href="/cleanmydb" class="btn btn-success" >Clean All Comments</a>
+
+        </div>
+{% endif %}
+
+</div>
+
+<div class="container">
+
     <hr/>
-    <h1> Comments Based On Frequency</h1>
+    <h1> Giveaway Result</h1>
     {% for x in okay %}
-    <div class="well">
+    <div class="well well-sm">
+        {{loop.index}}
         <a href="{{x.url}}"><h3>{{x.name}}</h3></a>
         <p>{{x.comment}}</p>
-        <p>Total Comments :: {{x.count}}</p>
+        <p><strong>Total Comments :: {{x.count}}</strong></p>
     </div>
     {% endfor %}
 </div>

@@ -7,7 +7,27 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
-<body>
+
+<body style="margin-top:50px;margin-bottom:50px;">
+
+<div class="container">
+{% if request.user.is_authenticated %}
+        <div class="nav navbar-nav navbar-right">
+
+
+            <a href="/accounts/logout/" class="btn btn-danger">Logout</a>
+
+        </div>
+
+    <div class="nav navbar-nav navbar-left">
+
+            <a href="/" class="btn btn-success">Home</a>
+            <a href="/cr-admin" class="btn btn-success">Admin Panel</a>
+
+        </div>
+{% endif %}
+
+</div>
 <div class="container">
 
     <h1>Current Rules</h1>

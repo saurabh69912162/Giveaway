@@ -64,7 +64,27 @@ html {
 }
 </style>
 </head>
-<body>
+
+<body style="margin-top:50px;margin-bottom:50px;">
+
+<div class="container">
+{% if request.user.is_authenticated %}
+        <div class="nav navbar-nav navbar-right">
+
+
+            <a href="/accounts/logout/" class="btn btn-danger">Logout</a>
+
+        </div>
+
+    <div class="nav navbar-nav navbar-left">
+
+            <a href="/" class="btn btn-success">Home</a>
+            <a href="/cr-admin" class="btn btn-success">Admin Panel</a>
+
+        </div>
+{% endif %}
+
+</div>
 <div class="container">
     <div class="well" style="margin-top:30px"><h4>Welcome {{request.user | title}}</h4></div>
 <h1 style="margin-top:50px;margin-bottom:50px;">Create New Task</h1>
@@ -76,7 +96,6 @@ html {
       <div class="container">
         <h2>New Giveaway</h2>
         <p class="title">Lets Giveaway something !</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
 
         <p><button class="btn btn-danger">Start A New Giveaway</button></p>
       </div>
@@ -89,7 +108,6 @@ html {
       <div class="container">
         <h2>End A Giveaway</h2>
         <p class="title">declare a Winner !</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
 
         <p><a href="/announce-winner" class="btn btn-danger">Announce Winners</a></p>
       </div>
@@ -100,7 +118,7 @@ html {
       <div class="container" >
         <h2>Insights</h2>
         <p class="title">Check Whats Goning on !</p>
-        <p>Take a deeper dive into the insights of your giveaways</p>
+
         <p><a href="#" class="btn btn-danger">Check Insights of Giveaways</a></p>
       </div>
     </div>
