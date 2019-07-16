@@ -1017,14 +1017,14 @@ def comment_frequency(request,giveaway_id):
                             # frequency_url.append(
                             #     page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
 
-                        obj_comment = model()
-                        obj_comment.comment = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
-                            'textDisplay']
-                        obj_comment.name = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
-                            'authorDisplayName']
-                        obj_comment.url = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
-                            'authorChannelUrl']
-                        obj_comment.save()
+                            obj_comment = model()
+                            obj_comment.comment = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'textDisplay']
+                            obj_comment.name = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'authorDisplayName']
+                            obj_comment.url = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'authorChannelUrl']
+                            obj_comment.save()
 
                         except IndexError:
                             break
