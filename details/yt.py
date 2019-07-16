@@ -267,7 +267,7 @@ url = 'https://www.youtube.com/watch?v=KoZM4M9U7GM'
 url1 = 'https://www.youtube.com/watch?v=giSFVAjrpmA'
 url2 = 'https://www.youtube.com/watch?v=7nMYcZ-0V1o'
 
-vids = [url]
+vids = [url1]
 all_comments = []
 global vid_len
 vid_len = len(vids)
@@ -388,8 +388,11 @@ for x in vids:
 #print(all_comments)
 print('$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%')
 print('$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%')
-final_zip = list(zip(frequency_name,frequency_comment,frequency_url))
-print(len(frequency_url))
+#final_zip = list(zip(frequency_name,frequency_comment,frequency_url))
+print(frequency_comment)
+print(len(frequency_comment))
+
+
 # freq = {}
 # for items in frequency_url:
 #     freq[items] = frequency_url.count(items)
