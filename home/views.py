@@ -991,7 +991,7 @@ def comment_frequency(request,giveaway_id):
                             obj_comment = model()
                             obj_comment.comment = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
                                 'textDisplay']
-                            obj_comment.name = ':: COMMENT ::' + page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                            obj_comment.name = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
                                 'authorDisplayName']
                             obj_comment.url = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
                                 'authorChannelUrl']
@@ -1033,7 +1033,7 @@ def comment_frequency(request,giveaway_id):
                         break
 
             elif set_loop_counter > 1:
-                time.sleep(2)
+
                 print('> 1', video_count)
                 page1 = requests.get(
                     'https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM' + next)
