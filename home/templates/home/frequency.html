@@ -8,7 +8,15 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div class="container">
 <a href="/cleanmydb" class="btn btn-danger" >Clean All Comments</a>
-
+    <hr/>
+    <h1> Comments Based On Frequency</h1>
+    {% for x in ok %}
+    <div class="well">
+        {{x}}
+    </div>
+    {% endfor %}
+</div>
 </body>
 </html>
