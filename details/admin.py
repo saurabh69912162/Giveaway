@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import *
 
-
+admin.site.register(comments)
 
 class user_details_admin(admin.ModelAdmin):
     list_display = ('username', 'email', 'first_name', 'last_name', 'phone','category','date_of_joining','image',)
@@ -53,5 +53,4 @@ class giveaway_analytics_admin(admin.ModelAdmin):
 admin.site.register(giveaway_analytics,giveaway_analytics_admin)
 
 
-admin.site.register(comments)
 

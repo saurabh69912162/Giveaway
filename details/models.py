@@ -123,7 +123,7 @@ class giveaway_analytics(models.Model):
 class comments(models.Model):
     name = models.CharField(max_length=255,blank=True)
     comment = models.CharField(max_length=5500, blank=True)
-    url = models.CharField(max_length=500)
+    url = models.CharField(max_length=500,blank=True)
 
     def __str__(self):
         return self.name

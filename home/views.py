@@ -932,3 +932,6 @@ def add_modify_rules(request,user,giveaway_id):
 
 
 
+def comment_frequency(request):
+
+    return render(request,'home/frequency.html',{})
