@@ -980,14 +980,22 @@ def comment_frequency(request,giveaway_id):
                         # print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
                         # frequency_url.append(
                         #     page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
-                        obj_comment = model()
-                        obj_comment.comment = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
-                            'textDisplay']
-                        obj_comment.name = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
-                            'authorDisplayName']
-                        obj_comment.url = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
-                            'authorChannelUrl']
-                        obj_comment.save()
+                        check_exist = model.objects.filter(url = page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
+                        if check_exist:
+                            model.objects.filter(url = page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl']).update(count=F('count') + 1)
+                            obj = model.objects.get(url=page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
+                            obj.comment  += page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'textDisplay']
+                            obj.save()
+                        else:
+                            obj_comment = model()
+                            obj_comment.comment = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'textDisplay']
+                            obj_comment.name = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'authorDisplayName']
+                            obj_comment.url = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'authorChannelUrl']
+                            obj_comment.save()
                     except IndexError:
                         break
 
@@ -1000,15 +1008,25 @@ def comment_frequency(request,giveaway_id):
 
                 for y in range(int(comment_count)):
                     try:
-                        obj_comment = model()
-                        obj_comment.comment = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
-                            'textDisplay']
-                        obj_comment.name = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
-                            'authorDisplayName']
-                        obj_comment.url = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
-                            'authorChannelUrl']
-                        obj_comment.save()
-                        # frequency_url.append(
+                        check_exist = model.objects.filter(
+                            url=page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
+                        if check_exist:
+                            model.objects.filter(url=page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'authorChannelUrl']).update(count=F('count') + 1)
+                            obj = model.objects.get(
+                                url=page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
+                            obj.comment += page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'textDisplay']
+                            obj.save()
+                        else:
+                            obj_comment = model()
+                            obj_comment.comment = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'textDisplay']
+                            obj_comment.name = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'authorDisplayName']
+                            obj_comment.url = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'authorChannelUrl']
+                            obj_comment.save()
                         #     page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
                         print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
                     except IndexError:
@@ -1028,16 +1046,25 @@ def comment_frequency(request,giveaway_id):
                 # next = '&pageToken=' + page1_json['nextPageToken']
                 for y in range(int(comment_count)):
                     try:
-                        # frequency_url.append(
-                        #     page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
-                        obj_comment = model()
-                        obj_comment.comment = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
-                            'textDisplay']
-                        obj_comment.name = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
-                            'authorDisplayName']
-                        obj_comment.url = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
-                            'authorChannelUrl']
-                        obj_comment.save()
+                        check_exist = model.objects.filter(
+                            url=page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
+                        if check_exist:
+                            model.objects.filter(url=page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'authorChannelUrl']).update(count=F('count') + 1)
+                            obj = model.objects.get(
+                                url=page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
+                            obj.comment += page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'textDisplay']
+                            obj.save()
+                        else:
+                            obj_comment = model()
+                            obj_comment.comment = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'textDisplay']
+                            obj_comment.name = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'authorDisplayName']
+                            obj_comment.url = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'authorChannelUrl']
+                            obj_comment.save()
                         print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
                     except IndexError:
                         break
