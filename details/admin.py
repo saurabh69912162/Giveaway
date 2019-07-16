@@ -53,5 +53,5 @@ class giveaway_analytics_admin(admin.ModelAdmin):
 admin.site.register(giveaway_analytics,giveaway_analytics_admin)
 
 
-
+admin.site.register(comments)
 
