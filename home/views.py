@@ -930,10 +930,10 @@ def add_modify_rules(request,user,giveaway_id):
                 obj12.save()
     return render(request,'home/add_modify_rules.html',{'form':form,'obj':obj})
 
-
+from django.db.models import Count
 
 def comment_frequency(request):
     model = apps.get_model('details', 'comments')
-    obj = model.objects.all()
-    print(obj)
+    ok = set(model.objects.all().values_list('url').annotate(freq=Count("url")))
+    print(sorted(ok))
     return render(request,'home/frequency.html',{})
