@@ -267,7 +267,7 @@ url = 'https://www.youtube.com/watch?v=KoZM4M9U7GM'
 url1 = 'https://www.youtube.com/watch?v=giSFVAjrpmA'
 url2 = 'https://www.youtube.com/watch?v=7nMYcZ-0V1o'
 
-vids = [url1]
+vids = [url,url1]
 all_comments = []
 global vid_len
 vid_len = len(vids)
@@ -277,7 +277,64 @@ frequency_name = []
 frequency_url = []
 frequency = []
 
+for video_count in vids:
+    o = urlparse(video_count)
+    video_id = o.query.split('v=')[1]
 
+    comment_count_request = requests.get('https://www.googleapis.com/youtube/v3/videos?part=id%2C++statistics&id='+video_id+'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM')
+    comment_count_json = comment_count_request.json()
+    comment_count = comment_count_json['items'][0]['statistics']['commentCount']
+    floorValue = math.ceil(int(comment_count) / 100)
+    if floorValue == 0:
+     set_loop_counter = 1
+    else:
+     set_loop_counter = floorValue
+
+    print('Comment Count :: ',comment_count)
+    print('Loop Count :: ',set_loop_counter)
+
+    for single_video in range(set_loop_counter):
+        if single_video == 0 and set_loop_counter == 1 :
+            print(video_count)
+            page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM')
+            page1_json = page1.json()
+            for y in range(int(comment_count)):
+                try:
+                    print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
+                except IndexError:
+                    break
+
+        elif single_video == 0 and set_loop_counter > 1:
+            print('0 and 1',video_count)
+            page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM')
+            page1_json = page1.json()
+            next = '&pageToken=' + page1_json['nextPageToken']
+
+            for y in range(int(comment_count)):
+                try:
+                    print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
+                except IndexError:
+                    break
+
+        elif set_loop_counter > 1:
+            print('> 1',video_count)
+            page1 = requests.get(
+                'https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM'+next)
+            page1_json = page1.json()
+            print(next)
+            try:
+                next = '&pageToken='+page1_json['nextPageToken']
+            except KeyError:
+                 pass
+            #next = '&pageToken=' + page1_json['nextPageToken']
+            for y in range(int(comment_count)):
+                try:
+                    print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
+                except IndexError:
+                    break
+            print(next)
+        else:
+            print('hi',video_count)
 
 
 
