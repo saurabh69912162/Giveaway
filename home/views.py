@@ -1047,7 +1047,7 @@ def comment_frequency(request,giveaway_id):
 
 
 
-    ok = sorted(model.objects.all().values_list('url').annotate(freq=Count("url")), reverse=False)
+    ok = sorted(set(model.objects.all().values_list('url').annotate(freq=Count("url"))), reverse=False)
     #ok = set(model.objects.all().annotate(frequency = Count('url')))
     return render(request,'home/frequency.html',{'ok':ok,})
 
