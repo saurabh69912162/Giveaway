@@ -932,7 +932,16 @@ def add_modify_rules(request,user,giveaway_id):
 
 from django.db.models import Count
 
-def comment_frequency(request):
+def comment_frequency(request,giveaway_id):
+    model2 = apps.get_model('details', 'giveaway_rule')
+    obj = model2.objects.filter(giveaway_id=giveaway_id)
+    vids_list = []
+    for x in obj:
+        if x.sequence_number > 0:
+            if x.youtube_comment:
+                vids_list.append(x.youtube_comment)
+
+    
     model = apps.get_model('details', 'comments')
     ok = set(model.objects.all().values_list('url').annotate(freq=Count("url")))
     print(sorted(ok))
