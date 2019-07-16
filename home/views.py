@@ -933,5 +933,7 @@ def add_modify_rules(request,user,giveaway_id):
 
 
 def comment_frequency(request):
-
+    model = apps.get_model('details', 'comments')
+    obj = model.objects.all()
+    print(obj)
     return render(request,'home/frequency.html',{})

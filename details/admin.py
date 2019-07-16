@@ -1,8 +1,6 @@
 from django.contrib import admin
 from .models import *
 
-admin.site.register(comments)
-
 class user_details_admin(admin.ModelAdmin):
     list_display = ('username', 'email', 'first_name', 'last_name', 'phone','category','date_of_joining','image',)
     search_fields = ('username', 'email', 'first_name', 'last_name', 'phone','category','date_of_joining','image',)
@@ -51,6 +49,23 @@ class giveaway_analytics_admin(admin.ModelAdmin):
     search_fields = ('giveaway_name', 'giveaway_id','participants_count','completed','partial')
     list_filter = ('giveaway_name','giveaway_id')
 admin.site.register(giveaway_analytics,giveaway_analytics_admin)
+
+
+
+class comments_admin(admin.ModelAdmin):
+    list_display = ('name','truncated_comment', 'url')
+    search_fields = ('name','truncated_comment', 'url')
+    list_filter = ('name','truncated_comment', 'url')
+
+    def truncated_comment(self, comment):
+        max_chars = 40
+        ret = comment.comment
+        if len(ret) > max_chars:
+            ret = ret[0:max_chars] + '...(truncated)'
+        return ret
+    truncated_comment.short_comment = 'comment'
+
+admin.site.register(comments, comments_admin)
 
 
 
