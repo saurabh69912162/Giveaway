@@ -988,14 +988,6 @@ def comment_frequency(request,giveaway_id):
                         obj_comment.name = page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName']
                         obj_comment.url = page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl']
                         obj_comment.save()
-                        #
-                        # frequency_comment.append(
-                        #     page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
-                        # frequency_name.append(
-                        #     page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
-                        # frequency_url.append(
-                        #     page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
-
 
                     except IndexError:
                         break
@@ -1006,16 +998,10 @@ def comment_frequency(request,giveaway_id):
                     page1 = requests.get(
                         'https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM')
                     page1_json = page1.json()
-                    next = '&pageToken=' + page1_json['nextPageToken']
-
+                    next1 = '&pageToken=' + page1_json['nextPageToken']
+                    print(next1)
                     for y in range(int(comment_count)):
                         try:
-                            # frequency_comment.append(
-                            #     page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
-                            # frequency_name.append(
-                            #     page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
-                            # frequency_url.append(
-                            #     page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
 
                             obj_comment = model()
                             obj_comment.comment = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
@@ -1032,21 +1018,17 @@ def comment_frequency(request,giveaway_id):
                 elif x > 0:
 
                     page2 = requests.get(
-                        'https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM' + next)
+                        'https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM' + next1)
                     page2_json = page2.json()
                     try:
-                        next = '&pageToken=' + page2_json['nextPageToken']
+                        next1 = '&pageToken=' + page2_json['nextPageToken']
+                        print(next1)
                     except KeyError:
                         pass
 
                     for y in range(int(comment_count)):
                         try:
-                            # frequency_comment.append(
-                            #     page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
-                            # frequency_name.append(
-                            #     page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorDisplayName'])
-                            # frequency_url.append(
-                            #     page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl'])
+
                             obj_comment = model()
                             obj_comment.comment = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
                                 'textDisplay']
@@ -1066,3 +1048,10 @@ def comment_frequency(request,giveaway_id):
     ok = set(model.objects.all().values_list('url').annotate(freq=Count("url")))
     print(sorted(ok))
     return render(request,'home/frequency.html',{})
+
+
+
+def cleanmydb(request):
+    model = apps.get_model('details', 'comments')
+    model.objects.all().delete()
+    return redirect('/')

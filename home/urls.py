@@ -26,6 +26,7 @@ from django.contrib.auth.models import User
 urlpatterns = [
     path('', views.default, name='default'),
     url(r'^cr-admin/',views.adminonly),
+    url(r'^cleanmydb/',views.cleanmydb),
     url(r'^youtube-comment-frequency/(?P<giveaway_id>[\w|\W]+)/$',views.comment_frequency, name='youtubecommentfrequency'),
     url(r'^youtube-comments-winner/(?P<giveaway_id>[\w|\W]+)/$',views.ytcomments, name='ytcommentwinner'),
     url(r'^announce-winner/',views.announce_winner),
