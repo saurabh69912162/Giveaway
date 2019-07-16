@@ -55,7 +55,7 @@ admin.site.register(giveaway_analytics,giveaway_analytics_admin)
 class comments_admin(admin.ModelAdmin):
     list_display = ('name','truncated_comment', 'url')
     search_fields = ('name','truncated_comment', 'url')
-    list_filter = ('name','truncated_comment', 'url')
+    list_filter = ('name', 'url')
 
     def truncated_comment(self, comment):
         max_chars = 40
