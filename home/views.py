@@ -1005,7 +1005,11 @@ def comment_frequency(request,giveaway_id):
                 page1 = requests.get(
                     'https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM')
                 page1_json = page1.json()
-                next = '&pageToken=' + page1_json['nextPageToken']
+                try:
+                    next = '&pageToken=' + page1_json['nextPageToken']
+                except KeyError:
+                    pass
+                #next = '&pageToken=' + page1_json['nextPageToken']
 
                 for y in range(int(comment_count)):
                     try:
