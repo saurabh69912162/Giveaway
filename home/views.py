@@ -1091,4 +1091,10 @@ def cleanmydb(request):
 
 def addgiveaway(request):
     form = add_new_giveaway()
+    if request.method == 'POST':
+        form = add_new_giveaway(request.POST,request.FILES)
+        if form.is_valid():
+            form.username = request.user
+            form.status = 'Open'
+            form.save()
     return render(request, 'home/addnew.html', {'form':form,})

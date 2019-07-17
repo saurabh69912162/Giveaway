@@ -3,12 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Add New Giveaway</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<form action="." method="POST">
+<div class="container" style="margin:35px">
+{% if request.user.is_authenticated %}
+        <div class="nav navbar-nav navbar-right">
+
+
+            <a href="/accounts/logout/" class="btn btn-danger">Logout</a>
+
+        </div>
+
+    <div class="nav navbar-nav navbar-left">
+
+            <a href="/" class="btn btn-success">Home</a>
+        <a href="/cleanmydb" class="btn btn-success" >Clean All Comments</a>
+
+        </div>
+{% endif %}
+
+</div>
+<div class="container">
+
+<h1>Add New Giveaway</h1>
+   <hr/>
+    <form action="." method="POST" class="form">
+    <div class="form-group">
     {% csrf_token %}
 {{form.as_p}}
-    <input type="submit" name="add-new">
+    <input type="submit" class="btn btn-success" name="add-new">
+    </div>
 </form>
+</div>
 </body>
 </html>
