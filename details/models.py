@@ -59,7 +59,12 @@ class new_giveaway(models.Model):
 
 
 
-
+# https://www.youtube.com/watch?v=8nBZjkZR9VU
+# https://www.youtube.com/watch?v=xHApZe81oms
+# https://www.youtube.com/watch?v=RSYHe-6oET8
+# https://www.youtube.com/watch?v=91k6WR1SL3A
+# https://www.youtube.com/watch?v=7AIOGsZeBvg
+#
 
 class winners(models.Model):
     giveaway_name = models.ForeignKey(new_giveaway, on_delete=models.CASCADE)
