@@ -955,7 +955,7 @@ def comment_frequency(request,giveaway_id):
     for video_count in vids:
         o = urlparse(video_count)
         video_id = o.query.split('v=')[1]
-
+        print(video_id)
         comment_count_request = requests.get(
             'https://www.googleapis.com/youtube/v3/videos?part=id%2C++statistics&id=' + video_id + '&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM')
         comment_count_json = comment_count_request.json()
