@@ -996,6 +996,7 @@ def comment_frequency(request,giveaway_id):
                             obj_comment.url = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
                                 'authorChannelUrl']
                             obj_comment.save()
+                        print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
                     except IndexError:
                         break
 
