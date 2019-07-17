@@ -26,6 +26,7 @@ from django.contrib.auth.models import User
 urlpatterns = [
     path('', views.default, name='default'),
     url(r'^cr-admin/',views.adminonly),
+    url(r'^addgiveaway/$', views.addgiveaway),
     url(r'^cleanmydb/',views.cleanmydb),
     url(r'^youtube-comment-frequency/(?P<giveaway_id>[\w|\W]+)/$',views.comment_frequency, name='youtubecommentfrequency'),
     url(r'^youtube-comments-winner/(?P<giveaway_id>[\w|\W]+)/$',views.ytcomments, name='ytcommentwinner'),
@@ -33,6 +34,7 @@ urlpatterns = [
     path('home/', views.profile, name='home'),
     url(r'^winner/$', views.winner, name='winner'),
     #url(r'^(?P<user>[-\w|\W]+)/end-giveaway/(?P<giveaway_id>[\w|\W]+)/winner/$', views.winner, name='winner'),
+
     url(r'^(?P<user>[-\w|\W]+)/(?P<giveaway_id>[\w|\W]+)/add_or_modify_rules/$', views.add_modify_rules, name='add_modify_rules'),
     url(r'^(?P<user>[-\w|\W]+)/end-giveaway/(?P<giveaway_id>[\w|\W]+)/$', views.endpage, name='endpage'),
     url(r'^(?P<user>[-\w|\W]+)/(?P<giveaway_id>[\w|\W]+)/$', views.detailpage, name='detailpage'),

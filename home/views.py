@@ -1086,3 +1086,21 @@ def cleanmydb(request):
     model = apps.get_model('details', 'comments')
     model.objects.all().delete()
     return redirect('/')
+
+
+
+def addgiveaway(request):
+    if request.user.is_authenticated:
+        model = apps.get_model('details', 'user_details')
+        if model.objects.filter(username=request.user):
+
+                
+            # model1 = apps.get_model('details', 'new_giveaway')
+            # obj = model1.objects.filter(username=request.user)
+
+            return render(request, 'home/adminonly.html', {'obj': obj, })
+
+        else:
+            return redirect('/')
+    else:
+        return redirect('/')
