@@ -1090,10 +1090,5 @@ def cleanmydb(request):
 
 
 def addgiveaway(request):
-    if request.user.is_authenticated:
-        model = apps.get_model('details', 'user_details')
-        print(request.user)
-        return render(request, 'home/adminonly.html', {})
-
-    else:
-        return redirect('/')
+    form = add_new_giveaway()
+    return render(request, 'home/addnew.html', {'form':form,})

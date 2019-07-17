@@ -23,3 +23,8 @@ class rules_form(forms.ModelForm):
                   'tweet_like','tweet_comment','retweet','youtube_subscibe','youtube_comment',
                   'youtube_like','youtube_share','go_to_this_link')
 
+class add_new_giveaway(forms.ModelForm):
+    class Meta:
+        model = apps.get_model('details', 'new_giveaway')
+        exclude = ('username','giveaway_id','status',)
+
