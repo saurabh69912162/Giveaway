@@ -68,4 +68,4 @@ class comments_admin(admin.ModelAdmin):
 admin.site.register(comments, comments_admin)
 
 
-
+admin.site.register(video_freq)
