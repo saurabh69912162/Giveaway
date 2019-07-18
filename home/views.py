@@ -1105,4 +1105,5 @@ def addgiveaway(request):
 
 
 def video_frequency(request,giveaway_id):
+
     return render(request,'home/yt_frequency.html',{})
