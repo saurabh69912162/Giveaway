@@ -1287,7 +1287,7 @@ def video_frequency(request,giveaway_id):
                 print('hi', video_count)
 
     # ok = sorted(set(model.objects.all().values_list('url').annotate(freq=Count("url"))), reverse=False)
-    okay = model.objects.exclude(name='Creative Pavan').order_by('-count', )
+    okay = model.objects.exclude(name='Creative Pavan').aggregate(Max('url',))
     # ok = set(model.objects.all().annotate(frequency = Count('url')))
 
 
