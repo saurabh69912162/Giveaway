@@ -130,6 +130,11 @@ class comments(models.Model):
     comment = models.TextField(max_length=5500, blank=True)
     url = models.CharField(max_length=500,blank=True)
     count = models.IntegerField(default=1)
-    video_count = models.IntegerField(default=0)
+    def __str__(self):
+        return self.name
+
+class video_freq(models.Model):
+    name = models.CharField(max_length=255,blank=True)
+    url = models.CharField(max_length=500,blank=True)
     def __str__(self):
         return self.name
