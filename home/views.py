@@ -1069,7 +1069,7 @@ def comment_frequency(request,giveaway_id):
                                 'authorDisplayName']
                             obj_comment.url = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
                                 'authorChannelUrl']
-                            obj_comment.video_count = obj_comment.objects.filter(url=page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl']).update(count=F('video_count') + 1)
+                            #obj_comment.objects.filter(url=page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl']).update(count=F('video_count') + 1)
                             obj_comment.save()
                         print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
                     except IndexError:
