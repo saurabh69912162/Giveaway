@@ -29,7 +29,7 @@ urlpatterns = [
     url(r'^addgiveaway/$', views.addgiveaway),
     url(r'^cleanmydb/',views.cleanmydb),
     url(r'^youtube-comment-frequency/(?P<giveaway_id>[\w|\W]+)/$',views.comment_frequency, name='youtubecommentfrequency'),
-url(r'^youtube-video-frequency/(?P<giveaway_id>[\w|\W]+)/$',views.video_frequency, name='youtubevideofrequency'),
+    url(r'^youtube-video-frequency/(?P<giveaway_id>[\w|\W]+)/$',views.video_frequency, name='youtubevideofrequency'),
     url(r'^youtube-comments-winner/(?P<giveaway_id>[\w|\W]+)/$',views.ytcomments, name='ytcommentwinner'),
     url(r'^announce-winner/',views.announce_winner),
     path('home/', views.profile, name='home'),

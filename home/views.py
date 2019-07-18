@@ -1090,9 +1090,11 @@ def comment_frequency(request,giveaway_id):
 def cleanmydb(request):
     model = apps.get_model('details', 'comments')
     model.objects.all().delete()
+    model1 = apps.get_model('details', 'video_freq')
+    model1.objects.all().delete()
     return redirect('/')
 
-
+from django.db.models import Max
 
 def addgiveaway(request):
     form = add_new_giveaway()
@@ -1109,6 +1111,7 @@ def video_frequency(request,giveaway_id):
     model = apps.get_model('details', 'comments')
     model2 = apps.get_model('details', 'giveaway_rule')
     model3 = apps.get_model('details','video_freq')
+
     obj = model2.objects.filter(giveaway_id=giveaway_id)
     vids_list = []
     for x in obj:
@@ -1174,6 +1177,14 @@ def video_frequency(request,giveaway_id):
                             obj_comment.url = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
                                 'authorChannelUrl']
                             obj_comment.save()
+
+                            video_freq_count = model3()
+                            video_freq_count.name =  page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'authorDisplayName']
+                            video_freq_count.url = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'authorChannelUrl']
+                            video_freq_count.save()
+
                         print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
                     except IndexError:
                         break
@@ -1211,6 +1222,15 @@ def video_frequency(request,giveaway_id):
                             obj_comment.url = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
                                 'authorChannelUrl']
                             obj_comment.save()
+
+                            video_freq_count = model3()
+                            video_freq_count.name = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'authorDisplayName']
+                            video_freq_count.url = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'authorChannelUrl']
+                            video_freq_count.save()
+
+
                         #     page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
                         print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
                     except IndexError:
@@ -1252,6 +1272,12 @@ def video_frequency(request,giveaway_id):
                             # obj_comment.objects.filter(url=page1_json['items'][y]['snippet']['topLevelComment']['snippet']['authorChannelUrl']).update(count=F('video_count') + 1)
                             obj_comment.save()
 
+                            video_freq_count = model3()
+                            video_freq_count.name = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'authorDisplayName']
+                            video_freq_count.url = page1_json['items'][y]['snippet']['topLevelComment']['snippet'][
+                                'authorChannelUrl']
+                            video_freq_count.save()
 
                         print(page1_json['items'][y]['snippet']['topLevelComment']['snippet']['textDisplay'])
                     except IndexError:
@@ -1261,7 +1287,7 @@ def video_frequency(request,giveaway_id):
                 print('hi', video_count)
 
     # ok = sorted(set(model.objects.all().values_list('url').annotate(freq=Count("url"))), reverse=False)
-    #okay = model.objects.exclude(name='Creative Pavan').order_by('-count', )
+    okay = model.objects.exclude(name='Creative Pavan').order_by('-count', )
     # ok = set(model.objects.all().annotate(frequency = Count('url')))
 
 
