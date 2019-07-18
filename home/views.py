@@ -1102,3 +1102,7 @@ def addgiveaway(request):
             form.status = 'Open'
             form.save()
     return render(request, 'home/addnew.html', {'form':form,})
+
+
+def video_frequency(request,giveaway_id):
+    return render(request,'home/yt_frequency.html',{})
