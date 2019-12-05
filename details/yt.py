@@ -1,7 +1,7 @@
 # # from django.test import TestCase
 # # from urllib.parse import urlparse
 # #
-# # o = urlparse('https://www.facebook.com/permalink.php?story_fbid=2321006788227886&id=1740315322963705')
+# # o = urlparse('https://www.facebook.com/permalink.php?story_fbid=xxx&id=xxx')
 # #
 # # answer = o.query
 # # final = answer.split('=')
@@ -281,7 +281,7 @@ for video_count in vids:
     o = urlparse(video_count)
     video_id = o.query.split('v=')[1]
 
-    comment_count_request = requests.get('https://www.googleapis.com/youtube/v3/videos?part=id%2C++statistics&id='+video_id+'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM')
+    comment_count_request = requests.get('https://www.googleapis.com/youtube/v3/videos?part=id%2C++statistics&id='+video_id+'&key=xxx-xxxx-xxx')
     comment_count_json = comment_count_request.json()
     comment_count = comment_count_json['items'][0]['statistics']['commentCount']
     floorValue = math.ceil(int(comment_count) / 100)
@@ -296,7 +296,7 @@ for video_count in vids:
     for single_video in range(set_loop_counter):
         if single_video == 0 and set_loop_counter == 1 :
             print(video_count)
-            page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM')
+            page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=xxxxx')
             page1_json = page1.json()
             for y in range(int(comment_count)):
                 try:
@@ -307,7 +307,7 @@ for video_count in vids:
 
         elif single_video == 0 and set_loop_counter > 1:
             print('0 and 1',video_count)
-            page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM')
+            page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=xxxxx')
             page1_json = page1.json()
             next = '&pageToken=' + page1_json['nextPageToken']
             print(next)
@@ -322,7 +322,7 @@ for video_count in vids:
         elif set_loop_counter > 1:
             print('> 1',video_count)
             page1 = requests.get(
-                'https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM'+next)
+                'https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=xxxxx'+next)
             page1_json = page1.json()
 
             try:
@@ -367,7 +367,7 @@ for video_count in vids:
 #     o = urlparse(x)
 #     video_id = o.query.split('v=')[1]
 #
-#     comment_count_request = requests.get('https://www.googleapis.com/youtube/v3/videos?part=id%2C++statistics&id='+video_id+'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM')
+#     comment_count_request = requests.get('https://www.googleapis.com/youtube/v3/videos?part=id%2C++statistics&id='+video_id+'&key=xxxxxx')
 #     comment_count_json = comment_count_request.json()
 #     comment_count = comment_count_json['items'][0]['statistics']['commentCount']
 #
@@ -383,7 +383,7 @@ for video_count in vids:
 #     for x in range(set_loop_counter):
 #      if x == 0 and set_loop_counter == 1 :
 #          video_count = video_count + 1
-#          page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id+'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM&pageToken=')
+#          page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id+'&key=xxxxx&pageToken=')
 #          page1_json = page1.json()
 #          #print(page1_json['items'])
 #          for y in range(int(comment_count)):
@@ -403,7 +403,7 @@ for video_count in vids:
 #      else:
 #          if x == 0:
 #              video_count = video_count + 1
-#              page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM')
+#              page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=xxxxx')
 #              page1_json = page1.json()
 #              next = '&pageToken=' + page1_json['nextPageToken']
 #
@@ -424,7 +424,7 @@ for video_count in vids:
 #
 #          elif x>0:
 #
-#              page2 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id +'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM'+next)
+#              page2 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id +'&key=xxxxx'+next)
 #              page2_json = page2.json()
 #              try:
 #                  next = '&pageToken='+page2_json['nextPageToken']
@@ -814,7 +814,7 @@ for video_count in vids:
 #
 # # o = urlparse(url)
 # # video_id = o.query.split('v=')[1]
-# # comment_count_request = requests.get('https://www.googleapis.com/youtube/v3/videos?part=id%2C++statistics&id='+video_id+'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM')
+# # comment_count_request = requests.get('https://www.googleapis.com/youtube/v3/videos?part=id%2C++statistics&id='+video_id+'&key=xxxx')
 # # comment_count_json = comment_count_request.json()
 # # comment_count = comment_count_json['items'][0]['statistics']['commentCount']
 # #
@@ -830,7 +830,7 @@ for video_count in vids:
 # #
 # # for x in range(set_loop_counter):
 # #     if x == 0 and set_loop_counter == 1 :
-# #         page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id+'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM&pageToken=')
+# #         page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id+'&key=xxxxx&pageToken=')
 # #         page1_json = page1.json()
 # #         print(page1_json['items'])
 # #         for x in range(int(comment_count)):
@@ -842,7 +842,7 @@ for video_count in vids:
 # #         break
 # #     else:
 # #         if x == 0:
-# #             page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM')
+# #             page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId=' + video_id + '&key=xxxxxxx')
 # #             page1_json = page1.json()
 # #             next = '&pageToken=' + page1_json['nextPageToken']
 # #
@@ -855,7 +855,7 @@ for video_count in vids:
 # #                     break
 # #
 # #         elif x>0:
-# #             page2 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id +'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM'+next)
+# #             page2 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id +'&key=xxxxxx'+next)
 # #             page2_json = page2.json()
 # #             next = '&pageToken='+page2_json['nextPageToken']
 # #
@@ -874,29 +874,29 @@ for video_count in vids:
 # # print('$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%')
 # # print(all_comments)
 #
-# # page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id+'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM')
+# # page1 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id+'&key=xxxxxxx')
 # # page1_json = page1.json()
 # # print(page1_json)
 # #
 # #
-# # page2 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id+'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM&pageToken='+page1_json['nextPageToken'])
+# # page2 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id+'&key=xxxxxxx&pageToken='+page1_json['nextPageToken'])
 # # page2_json = page2.json()
 # # print(page2_json['pageInfo'])
 # #
-# # page3 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id+'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM&pageToken='+page2_json['nextPageToken'])
+# # page3 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id+'&key=xxxxxxx&pageToken='+page2_json['nextPageToken'])
 # # page3_json = page2.json()
 # # print(page3_json['pageInfo'])
 # #
 # #
-# # page4 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id+'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM&pageToken='+page3_json['nextPageToken'])
+# # page4 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id+'&key=xxxxxxx&pageToken='+page3_json['nextPageToken'])
 # # page4_json = page3.json()
 # # print(page4_json['pageInfo'])
 # #
-# # page5 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id+'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM&pageToken='+page4_json['nextPageToken'])
+# # page5 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id+'&key=xxxxxxx&pageToken='+page4_json['nextPageToken'])
 # # page5_json = page5.json()
 # # print(page5_json['pageInfo'])
 # #
-# # page6 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id+'&key=AIzaSyAON6ej-MZMTh3xHP-uc_sBvZ0s5HXhRvM&pageToken='+page5_json['nextPageToken'])
+# # page6 = requests.get('https://www.googleapis.com/youtube/v3/commentThreads?part=id%2Csnippet&maxResults=100&videoId='+video_id+'&key=xxxxxxx&pageToken='+page5_json['nextPageToken'])
 # # page6_json = page6.json()
 # # print(page6_json['pageInfo'])
 # #
